@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import { 
   Ship, 
   Users, 
@@ -19,6 +21,33 @@ import COMPLOGO from "@/assets/COMP-LOGO.png";
 import MARITIMEWOMEN from "@/assets/maritime-women-leaders.jpg";
 
 const AboutSection = () => {
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+
+  // Placeholder images for the carousel
+  const carouselImages = [
+    {
+      src: "/placeholder.svg",
+      alt: "Maritime Image 1",
+      title: "Replace with your image 1"
+    },
+    {
+      src: "/placeholder.svg", 
+      alt: "Maritime Image 2",
+      title: "Replace with your image 2"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Maritime Image 3", 
+      title: "Replace with your image 3"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Maritime Image 4",
+      title: "Replace with your image 4"
+    }
+  ];
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const services = [
@@ -396,6 +425,56 @@ const AboutSection = () => {
             <div className="absolute top-1/2 left-1/3 w-1/6 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent transform -translate-y-1/2 opacity-30" />
             <div className="absolute top-1/2 right-1/3 w-1/6 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent transform -translate-y-1/2 opacity-30" />
           </motion.div>
+        </div>
+
+        {/* Image Carousel Section */}
+        <div className="mb-16">
+          <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Our <span className="text-secondary">Maritime Gallery</span>
+            </h3>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Showcasing our expertise and commitment to maritime excellence
+            </p>
+          </motion.div>
+
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full max-w-5xl mx-auto"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent>
+              {carouselImages.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="overflow-hidden">
+                      <div className="aspect-[4/3] relative">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <p className="font-semibold">{image.title}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
 
         {/* Awards & Recognition */}
