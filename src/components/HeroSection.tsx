@@ -8,8 +8,8 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroImage}
-          alt="Maritime vessel at sea"
+          src="/lovable-uploads/f7cb6834-4458-4448-a972-ba0105cea5b9.png"
+          alt="Women maritime professionals at port with vessel"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-maritime-deep/90 via-maritime-deep/70 to-transparent"></div>
