@@ -5,7 +5,7 @@ import YOUTHIMG from "@/assets/YOUTH-IMG.png";
 
 const GlobalMaritimeYouthSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="impact" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary rounded-full"></div>
