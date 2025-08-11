@@ -18,7 +18,8 @@ import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import FOUNDIMG from "@/assets/FOUND-IMG-removebg-preview.png";
 import COMPLOGO from "@/assets/COMP-LOGO.png";
-import MARITIMEWOMEN from "@/assets/maritime-women-leaders.jpg";
+import COMPRO from "@/assets/COMPRO.png";
+import VISIONIMG from "@/assets/VISION.png";
 
 const AboutSection = () => {
   const plugin = useRef(
@@ -116,7 +117,7 @@ const AboutSection = () => {
                 <div>
                   <div className="relative">
                                            <img 
-                        src={MARITIMEWOMEN} 
+                        src={COMPRO} 
                         alt="Maritime women professionals at work" 
                         className="w-full h-96 object-cover rounded-lg shadow-xl"
                       />
@@ -152,10 +153,7 @@ const AboutSection = () => {
               {/* Contact Information at Bottom */}
               <div className="mt-8 pt-4 border-t border-gray-200">
                 <div className="flex flex-wrap justify-center gap-6 text-xs text-muted-foreground">
-                  <span>WWW.WOMARITIME.COM</span>
-                  <span>INFO@WOMARITIME.COM</span>
-                  <span>+27(0) 71 879 5034</span>
-                  <span>SOUTH AFRICA</span>
+              
                 </div>
               </div>
             </div>
@@ -172,10 +170,9 @@ const AboutSection = () => {
                 <img 
                   src={COMPLOGO} 
                   alt="Womaritime Experts Logo" 
-                  className="h-16 w-auto mb-3"
+                  className="h-24 w-auto"
                 />
-                <h3 className="text-xl font-bold text-maritime-deep mb-1">WOMARITIME EXPERTS</h3>
-                <p className="text-sm text-muted-foreground">Trusted Aboard. Trusted Ashore.</p>
+              
               </div>
 
               {/* Our Vision */}
@@ -204,7 +201,7 @@ const AboutSection = () => {
             {/* Right Column - Image */}
             <div className="bg-white">
               <img 
-                src={MARITIMEWOMEN} 
+                src={VISIONIMG} 
                 alt="Women working in maritime industry" 
                 className="w-full h-full object-cover"
               />

@@ -2,8 +2,39 @@ import { Button } from "@/components/ui/button";
 import { GraduationCap, Lightbulb, Globe, Users, Target, ChevronRight, ArrowRight } from "lucide-react";
 import YOUTHLOGO from "@/assets/YOUTH-LOGO-removebg-preview.png";
 import YOUTHIMG from "@/assets/YOUTH-IMG.png";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { Card } from "@/components/ui/card";
+import { useRef } from "react";
+
 
 const GlobalMaritimeYouthSection = () => {
+  // Carousel plugin and images (reused from AboutSection)
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+  const carouselImages = [
+    {
+      src: "/placeholder.svg",
+      alt: "Maritime Youth Image 1",
+      title: "Replace with your youth image 1"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Maritime Youth Image 2",
+      title: "Replace with your youth image 2"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Maritime Youth Image 3",
+      title: "Replace with your youth image 3"
+    },
+     {
+      src: "/placeholder.svg",
+      alt: "Maritime Youth Image 3",
+      title: "Replace with your youth image 4"
+    }
+  ];
   return (
     <section id="impact" className="py-24 bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
       {/* Background decorative elements */}
@@ -112,6 +143,49 @@ const GlobalMaritimeYouthSection = () => {
                 />
               </div>
             </div>
+          </div>
+
+          {/* Maritime Youth Image Carousel */}
+          <div className="mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Global Maritime Youth <span className="text-secondary">Gallery</span>
+              </h3>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Showcasing youth engagement and maritime leadership
+              </p>
+            </div>
+            <Carousel
+              plugins={[plugin.current]}
+              className="w-full max-w-5xl mx-auto"
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+            >
+              <CarouselContent>
+                {carouselImages.map((image, index) => (
+                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <Card className="overflow-hidden">
+                        <div className="aspect-[4/3] relative">
+                          <img
+                            src={image.src}
+                            alt={image.alt}
+                            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-4 left-4 text-white">
+                              <p className="font-semibold">{image.title}</p>
+                            </div>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </div>
           
           {/* Contact Info with enhanced styling */}
