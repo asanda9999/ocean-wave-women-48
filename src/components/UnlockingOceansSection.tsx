@@ -1,15 +1,15 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Play, Users, Lightbulb, TrendingUp, Heart } from "lucide-react";
+import { Play, Heart, ExternalLink } from "lucide-react";
 
-const ImpactSection = () => {
+const UnlockingOceansSection = () => {
   const impactPoints = [
     {
       title: "Demystify the oceans economy",
       description: "by spotlighting companies, their offerings, and their roles in the maritime value chain."
     },
     {
-      title: "Illuminate opportunity",
+      title: "Illuminate opportunity", 
       description: "by showcasing diverse career paths, business avenues, and success stories within the industry."
     },
     {
@@ -22,41 +22,37 @@ const ImpactSection = () => {
     }
   ];
 
-  const podcastEpisodes = [
+  // Placeholder images for the podcast interviews
+  const podcastImages = [
     {
       id: 1,
-      title: "Episode 1: Unlocking Ocean Economy",
-      guest: "Doris Van Staden",
-      description: "Exploring maritime opportunities"
+      title: "Doris Van Staden",
+      subtitle: "Maritime Executive"
     },
     {
-      id: 2,
-      title: "Episode 2: Ocean Leadership",
-      guest: "Lizelle Remmers",
-      description: "Women in maritime leadership"
+      id: 2, 
+      title: "Lizelle Remmers",
+      subtitle: "Ocean Economy Leader"
     },
     {
       id: 3,
-      title: "Episode 3: Maritime Innovation",
-      guest: "David Parker",
-      description: "Technology in ocean economy"
+      title: "David Parker", 
+      subtitle: "Maritime Innovation"
     },
     {
       id: 4,
-      title: "Episode 4: Sustainable Oceans",
-      guest: "Kendra Sothern-Moya",
-      description: "Environmental sustainability"
+      title: "Kendra Sothern-Moya",
+      subtitle: "Sustainability Expert"
     },
     {
       id: 5,
-      title: "Episode 5: Future of Maritime",
-      guest: "Linden McBride",
-      description: "Next generation maritime"
+      title: "Linden McBride",
+      subtitle: "Future Maritime"
     }
   ];
 
   return (
-    <section id="impact" className="py-20 bg-white">
+    <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-16">
@@ -110,35 +106,38 @@ const ImpactSection = () => {
             </p>
           </div>
 
-          {/* Right Column - Podcast Episodes Grid */}
+          {/* Right Column - Podcast Images Grid */}
           <div>
             <div className="grid grid-cols-2 gap-4 mb-6">
-              {podcastEpisodes.map((episode) => (
-                <Card key={episode.id} className="relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
+              {podcastImages.map((image) => (
+                <Card key={image.id} className="relative overflow-hidden group hover:shadow-lg transition-shadow duration-300">
                   <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 relative">
-                    {/* Placeholder for podcast episode thumbnail */}
+                    {/* Placeholder for podcast interview image */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                       <div className="text-center p-4">
                         <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                          <Users className="w-8 h-8 text-primary" />
+                          <div className="w-8 h-8 bg-primary/30 rounded-full"></div>
                         </div>
-                        <p className="text-xs font-medium text-primary">
-                          {episode.guest}
+                        <p className="text-xs font-medium text-primary mb-1">
+                          {image.title}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {image.subtitle}
                         </p>
                       </div>
                     </div>
                     
-                    {/* Play button overlay */}
+                    {/* Hover overlay */}
                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <div className="w-12 h-12 bg-white/90 rounded-full flex items-center justify-center">
-                        <Play className="w-6 h-6 text-primary ml-1" />
+                        <ExternalLink className="w-6 h-6 text-primary" />
                       </div>
                     </div>
 
-                    {/* Episode title overlay */}
+                    {/* Title overlay */}
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
                       <p className="text-white text-xs font-medium">
-                        {episode.title}
+                        Unlocking Oceans Economy
                       </p>
                     </div>
                   </div>
@@ -157,7 +156,7 @@ const ImpactSection = () => {
                   <Play className="w-3 h-3 text-white fill-white" />
                 </div>
                 Watch on YouTube
-                <TrendingUp className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           </div>
@@ -167,4 +166,4 @@ const ImpactSection = () => {
   );
 };
 
-export default ImpactSection;
+export default UnlockingOceansSection;
