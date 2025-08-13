@@ -104,7 +104,7 @@ const AboutSection = () => {
              {/* Right Column - White Background with Content */}
              <div className="md:col-span-11 bg-white p-6 md:p-8 rounded-l-2xl relative">
               {/* Logo in Top Right Corner */}
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 hidden md:block">
                 <img 
                   src={COMPLOGO} 
                   alt="Womaritime Experts Logo" 
@@ -112,14 +112,14 @@ const AboutSection = () => {
                 />
               </div>
               
-              <div className="grid md:grid-cols-2 gap-8 items-center mt-8">
+              <div className="grid md:grid-cols-2 gap-8 items-center mt-4 md:mt-8">
                 {/* Left Side - Image */}
                 <div>
                   <div className="relative">
                                            <img 
                         src={COMPRO} 
                         alt="Maritime women professionals at work" 
-                        className="w-full h-96 object-cover rounded-lg shadow-xl"
+                        className="w-full h-64 md:h-96 object-cover rounded-lg shadow-xl"
                       />
                   </div>
                 </div>
