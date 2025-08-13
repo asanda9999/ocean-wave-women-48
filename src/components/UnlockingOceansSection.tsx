@@ -146,19 +146,6 @@ const UnlockingOceansSection = () => {
             </div>
 
             {/* YouTube Link */}
-            <div className="flex justify-center">
-              <Button 
-                variant="maritime" 
-                size="lg" 
-                className="group"
-              >
-                <div className="w-6 h-6 bg-red-600 rounded flex items-center justify-center mr-3">
-                  <Play className="w-3 h-3 text-white fill-white" />
-                </div>
-                Watch on YouTube
-                <ExternalLink className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
           </div>
         </div>
       </div>
