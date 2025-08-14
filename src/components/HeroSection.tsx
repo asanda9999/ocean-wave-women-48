@@ -39,7 +39,7 @@ const HeroSection = () => {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <img
-          src="/assets/f7cb6834-4458-4448-a972-ba0105cea5b9.png"
+          src="/lovable-uploads/f7cb6834-4458-4448-a972-ba0105cea5b9.png"
           alt="Women maritime professionals at port with vessel"
           className="w-full h-full object-cover"
         />
@@ -117,7 +117,7 @@ const HeroSection = () => {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
                 style={{
-                  background: "linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--secondary)/0.8), hsl(var(--secondary)))",
+                  background: "linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--secondary) / 0.8), hsl(var(--secondary)))",
                   backgroundSize: "200% 100%",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
