@@ -1,4 +1,4 @@
-import WMCLI from "/WMCLI.png";
+import WMCLI from "/assets/WMCLI.png";
 
 const ClientsPartnersSection = () => {
   return (

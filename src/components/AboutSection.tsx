@@ -17,10 +17,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
-import FOUNDIMG from "@/assets/FOUND-IMG-removebg-preview.png";
-import COMPLOGO from "@/assets/COMP-LOGO.png";
-import COMPRO from "@/assets/COMPRO.png";
-import VISIONIMG from "@/assets/VISION.png";
+import FOUNDIMG from "/assets/FOUND-IMG-removebg-preview.png";
+import COMPLOGO from "/assets/COMP-LOGO.png";
+import COMPRO from "/assets/COMPRO.png";
+import VISIONIMG from "/assets/VISION.png";
 
 const AboutSection = () => {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));

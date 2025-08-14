@@ -39,7 +39,7 @@ const HeroSection = () => {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <img
-          src="/lovable-uploads/f7cb6834-4458-4448-a972-ba0105cea5b9.png"
+          src="/assets/f7cb6834-4458-4448-a972-ba0105cea5b9.png"
           alt="Women maritime professionals at port with vessel"
           className="w-full h-full object-cover"
         />
