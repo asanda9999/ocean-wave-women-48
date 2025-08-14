@@ -3,6 +3,7 @@ import { ChevronRight, Anchor, Shield, Globe, ArrowDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+const HERO_IMAGE_PATH = "/lovable-uploads/f7cb6834-4458-4448-a972-ba0105cea5b9.png";
 const HeroSection = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -39,7 +40,7 @@ const HeroSection = () => {
       {/* Animated Background */}
       <div className="absolute inset-0">
         <img
-          src="/lovable-uploads/f7cb6834-4458-4448-a972-ba0105cea5b9.png"
+          src={HERO_IMAGE_PATH}
           alt="Women maritime professionals at port with vessel"
           className="w-full h-full object-cover"
         />
