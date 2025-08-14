@@ -31,7 +31,7 @@ const HeroSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: ["easeOut"] }
     }
   };
 
@@ -83,7 +83,7 @@ const HeroSection = () => {
         transition={{
           duration: 0.3,
         }}
-      />
+  ></motion.div>
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto container-padding pt-20">
