@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Lightbulb, Globe, Users, Target, ChevronRight, ArrowRight } from "lucide-react";
-import YOUTHLOGO from "@/assets/YOUTH-LOGO-removebg-preview.png";
-import YOUTHIMG from "@/assets/YOUTH-IMG.png";
+import YOUTHLOGO from "/YOUTH-LOGO-removebg-preview.png";
+import YOUTHIMG from "/YOUTH-IMG.png";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Card } from "@/components/ui/card";
