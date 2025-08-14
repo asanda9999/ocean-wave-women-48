@@ -10,10 +10,11 @@ import {
   Award, 
   Heart,
   CheckCircle,
-  Anchor
+  Anchor,
+  ArrowRight
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import FOUNDIMG from "@/assets/FOUND-IMG-removebg-preview.png";
@@ -22,118 +23,136 @@ import COMPRO from "@/assets/COMPRO.png";
 import VISIONIMG from "@/assets/VISION.png";
 
 const AboutSection = () => {
-  const plugin = useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
-  );
-
-  // Placeholder images for the carousel
-  const carouselImages = [
-    {
-      src: "/placeholder.svg",
-      alt: "Maritime Image 1",
-      title: "Replace with your image 1"
-    },
-    {
-      src: "/placeholder.svg", 
-      alt: "Maritime Image 2",
-      title: "Replace with your image 2"
-    },
-    {
-      src: "/placeholder.svg",
-      alt: "Maritime Image 3", 
-      title: "Replace with your image 3"
-    },
-    {
-      src: "/placeholder.svg",
-      alt: "Maritime Image 4",
-      title: "Replace with your image 4"
-    }
-  ];
+  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const services = [
     {
       icon: Ship,
       title: "Vessel Support & Technical Services",
-      description: "Reliable, end-to-end support for vessel operations including dry docking, bunkering, crew services, ship provisioning, repairs, maintenance, compliance and certification. We ensure vessels meet regulatory standards and achieve safe, efficient port turnaround.",
+      description: "Reliable, end-to-end support for vessel operations including dry docking, bunkering, crew services, ship provisioning, repairs, maintenance, compliance and certification.",
       delay: 0,
       isPopular: false
     },
     {
       icon: TrendingUp,
       title: "Strategic Maritime Advisory",
-      description: "Expert guidance across regulatory compliance, project management, procurement solutions and shore-to-ship integration. We help clients navigate complexities with insight and precision.",
+      description: "Expert guidance across regulatory compliance, project management, procurement solutions and shore-to-ship integration.",
       delay: 0.2,
       isPopular: true
     },
     {
       icon: BookOpen,
       title: "Specialised Maritime Training",
-      description: "Accredited and industry-relevant training programmes designed to equip individuals and institutions with skills for the ocean economy. From technical competency and regulatory understanding to leadership and soft skills development.",
+      description: "Accredited and industry-relevant training programmes designed to equip individuals and institutions with skills for the ocean economy.",
       delay: 0.4,
       isPopular: false
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
 
   return (
-    <section id="about" className="py-20 bg-maritime-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="section-padding bg-gradient-minimal" ref={sectionRef}>
+      <div className="max-w-7xl mx-auto container-padding">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+        <motion.div 
+          className="text-center mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div 
+            className="inline-flex items-center space-x-2 bg-primary/5 rounded-full px-4 py-2 mb-6"
+            variants={itemVariants}
+            whileHover={{ scale: 1.05 }}
+          >
             <Heart className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-primary">About Womaritime Experts</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          </motion.div>
+          
+          <motion.h2 
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6"
+            variants={itemVariants}
+          >
             Integrated Maritime Services
-            <span className="block text-secondary">for Africa's Ocean Economy</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <span className="block text-secondary mt-2">for Africa's Ocean Economy</span>
+          </motion.h2>
+          
+          <motion.p 
+            className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            variants={itemVariants}
+          >
             We combine deep industry insight with global standards to keep fleets and 
             organisations operating safely, efficiently, and sustainably.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Company Profile Section */}
-        <div className="mb-16">
-                     <div className="grid md:grid-cols-12 gap-0">
-             {/* Left Column - Dark Green Background */}
-             <div className="md:col-span-1 bg-maritime-deep"></div>
-             
-             {/* Right Column - White Background with Content */}
-             <div className="md:col-span-11 bg-white p-6 md:p-8 rounded-l-2xl relative">
-              {/* Logo in Top Right Corner */}
-              <div className="absolute top-4 right-4 hidden md:block">
-                <img 
+        <motion.div 
+          className="mb-20"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <div className="grid md:grid-cols-12 gap-0 rounded-3xl overflow-hidden shadow-elevated">
+            <div className="md:col-span-1 bg-primary"></div>
+            
+            <div className="md:col-span-11 bg-white p-8 md:p-12 relative">
+              <div className="absolute top-6 right-6 hidden md:block">
+                <motion.img 
                   src={COMPLOGO} 
                   alt="Womaritime Experts Logo" 
-                  className="h-24 w-auto"
+                  className="h-20 w-auto"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
                 />
               </div>
               
-              <div className="grid md:grid-cols-2 gap-8 items-center mt-4 md:mt-8">
-                {/* Left Side - Image */}
-                <div>
-                  <div className="relative">
-                                           <img 
-                        src={COMPRO} 
-                        alt="Maritime women professionals at work" 
-                        className="w-full h-64 md:h-96 object-cover rounded-lg shadow-xl"
-                      />
+              <div className="grid md:grid-cols-2 gap-8 items-center mt-8">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="relative group">
+                    <img 
+                      src={COMPRO} 
+                      alt="Maritime women professionals at work" 
+                      className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-card group-hover:shadow-elevated transition-all duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                </div>
+                </motion.div>
                 
-                {/* Right Side - Text Content */}
-                <div>
-                  <div className="mb-4">
-                    <h3 className="text-xl font-bold mb-2">
-                      <span className="text-maritime-deep">Company</span>
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3">
+                      <span className="text-primary">Company</span>
                       <span className="text-secondary ml-2">PROFILE</span>
                     </h3>
                   </div>
                   
-                  <div className="space-y-3 text-sm text-muted-foreground">
+                  <div className="space-y-4 text-muted-foreground leading-relaxed">
                     <p>
                       Womaritime Experts (PTY) LTD is an integrated maritime services company advancing Africa's 
                       ocean economy through expert vessel support, strategic advisory, and specialized training.
@@ -147,262 +166,179 @@ const AboutSection = () => {
                       commitment to a thriving maritime ecosystem.
                     </p>
                   </div>
-                </div>
-              </div>
-              
-              {/* Contact Information at Bottom */}
-              <div className="mt-8 pt-4 border-t border-gray-200">
-                <div className="flex flex-wrap justify-center gap-6 text-xs text-muted-foreground">
-              
+                  
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-6 py-3 group">
+                      Learn More
+                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                    </Button>
+                  </motion.div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Vision & Mission Section - New Layout */}
-        <div className="mb-16">
-          <div className="grid md:grid-cols-2 gap-0">
-            {/* Left Column - Branding and Text */}
+        {/* Vision & Mission Section */}
+        <motion.div 
+          className="mb-20"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-elevated">
             <div className="bg-white p-8 md:p-12">
-              {/* Logo and Branding */}
               <div className="mb-8">
-                <img 
+                <motion.img 
                   src={COMPLOGO} 
                   alt="Womaritime Experts Logo" 
-                  className="h-24 w-auto"
+                  className="h-20 w-auto"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.3 }}
                 />
-              
               </div>
 
-              {/* Our Vision */}
-              <div className="mb-8">
-                <h3 className="text-3xl font-bold text-secondary mb-4">Our Vision</h3>
-                <div className="bg-maritime-deep p-6 relative">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-white"></div>
-                  <p className="text-white text-lg leading-relaxed pl-4">
-                    To be Africa's most trusted maritime partner, advancing ocean economy growth through excellence, inclusion, and sustainable impact.
-                  </p>
-                </div>
-              </div>
+              <div className="space-y-8">
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="text-2xl font-bold text-secondary mb-4">Our Vision</h3>
+                  <div className="bg-primary p-6 rounded-2xl relative overflow-hidden">
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+                    <p className="text-white leading-relaxed pl-4">
+                      To be Africa's most trusted maritime partner, advancing ocean economy growth through excellence, inclusion, and sustainable impact.
+                    </p>
+                  </div>
+                </motion.div>
 
-              {/* Our Mission */}
-              <div>
-                <h3 className="text-3xl font-bold text-secondary mb-4">Our Mission</h3>
-                <div className="bg-maritime-deep p-6 relative">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-white"></div>
-                  <p className="text-white text-lg leading-relaxed pl-4">
-                    To deliver integrated maritime services that drive vessel performance, reinforce compliance, and equip organisations with strategic tools that are powered by insight, innovation, and a bold commitment to maritime transformation.
-                  </p>
-                </div>
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="text-2xl font-bold text-secondary mb-4">Our Mission</h3>
+                  <div className="bg-primary p-6 rounded-2xl relative overflow-hidden">
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+                    <p className="text-white leading-relaxed pl-4">
+                      To deliver integrated maritime services that drive vessel performance, reinforce compliance, and equip organisations with strategic tools powered by insight, innovation, and commitment to maritime transformation.
+                    </p>
+                  </div>
+                </motion.div>
               </div>
             </div>
 
-            {/* Right Column - Image */}
-            <div className="bg-white">
+            <motion.div 
+              className="bg-white relative overflow-hidden"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
               <img 
                 src={VISIONIMG} 
                 alt="Women working in maritime industry" 
                 className="w-full h-full object-cover"
               />
-            </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+            </motion.div>
           </div>
-        </div>
-
-        {/* Story Section */}
-        <div className="mb-16">
-          <div className="grid md:grid-cols-2 gap-0">
-                         {/* Left Column - White Background */}
-             <div className="bg-white p-4 md:p-8">
-               {/* Logo and Title */}
-               <div className="mb-6">
-                 <div className="text-center mb-1">
-                   <img 
-                     src={COMPLOGO} 
-                     alt="Womaritime Experts Logo" 
-                     className="h-20 w-auto mx-auto"
-                   />
-                 </div>
-                 
-                 <h3 className="text-2xl font-bold text-center mb-2" style={{ color: '#024b31' }}>Our Story</h3>
-                 <p className="text-sm text-center mb-6" style={{ color: '#024b31' }}>Founded in 2019</p>
-               </div>
-              
-              {/* Founder Image */}
-              <div className="text-center mb-6">
-                <div className="w-64 h-64 mx-auto mb-4">
-                  <img 
-                    src={FOUNDIMG} 
-                    alt="Londy Ngcobo - Founder of Womaritime Experts" 
-                    className="w-full h-full object-cover rounded-full"
-                  />
-                </div>
-                <div className="w-16 h-0.5 mx-auto mb-4" style={{ backgroundColor: '#024b31' }}></div>
-                <h4 className="font-semibold text-lg" style={{ color: '#024b31' }}>Londy Ngcobo</h4>
-                <p className="text-sm" style={{ color: '#024b31' }}>CEO of Womaritime Experts and Founder Global Maritime Youth</p>
-              </div>
-              
-              
-            </div>
-            
-            {/* Right Column - Dark Green Background */}
-            <div className="p-8 md:p-12" style={{ backgroundColor: '#024b31' }}>
-              <div className="text-white space-y-4">
-                <p>
-                  Womaritime Experts was born out of a deep understanding of both the operational 
-                  and strategic needs of the maritime industry. After years at sea including making 
-                  history as Africa's first female dredge master and later serving as Maritime 
-                  Compliance Manager and Designated Person Ashore (DPA) for one of South Africa's 
-                  largest state-owned entities, our founder, Londy Ngcobo, identified a crucial gap: 
-                  the need for stronger alignment between onboard operations and shore-based strategy, 
-                  and the visible underrepresentation of women in technical and advisory roles across 
-                  the ocean economy.
-                </p>
-                <p>
-                  In response to the reality that women make up less than 2% of the maritime workforce, 
-                  Womaritime Experts was founded not as a movement, but as a high-impact service company 
-                  that delivers tangible results while championing greater representation.
-                </p>
-                <p>
-                  Today, our team of maritime professionals, consultants, and sector leaders reflects 
-                  the strength, excellence, and diversity that continues to drive Africa's ocean economy 
-                  forward. From boardrooms to shipyards, and from training rooms to global stages, we 
-                  lead with purpose and the bold belief that transformation is not a side agenda—it is 
-                  a strategic advantage.
-                </p>
-                <p>
-                  We believe that this transformation should be recognized and supported by the broader 
-                  maritime ecosystem, as it represents not just progress, but a fundamental shift toward 
-                  a more inclusive and effective industry.
-                </p>
-                <p>
-                  Thank you for your interest in our story. We are maritime professionals first, and 
-                  we look forward to offering our expertise to help drive your maritime initiatives forward.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        </motion.div>
 
         {/* Services Section */}
-        <div id="expertise" className="mb-16">
+        <div id="expertise" className="mb-20">
           <motion.div 
-            className="text-center mb-12"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-16"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
           >
-            <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
+            <motion.div 
+              className="inline-flex items-center space-x-2 bg-primary/5 rounded-full px-4 py-2 mb-6"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+            >
               <Anchor className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">Our Core Services</span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            </motion.div>
+            
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+              variants={itemVariants}
+            >
               Three Pillars of
-              <span className="block text-secondary">Maritime Excellence</span>
-            </h3>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              <span className="block text-secondary mt-2">Maritime Excellence</span>
+            </motion.h3>
+            
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              variants={itemVariants}
+            >
               Comprehensive solutions that drive your maritime operations forward with precision and expertise.
-            </p>
+            </motion.p>
           </motion.div>
           
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ 
-                  opacity: 0, 
-                  y: 50,
-                  scale: 0.95,
-                  rotateY: index === 0 ? -15 : index === 2 ? 15 : 0
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: service.isPopular ? -20 : 0,
-                  scale: 1,
-                  rotateY: 0,
-                  x: isDesktop ? (index === 0 ? 30 : index === 2 ? -30 : 0) : 0
-                }}
-                viewport={{ once: true, margin: "-100px" }}
+                className={cn(
+                  "relative group",
+                  service.isPopular && "z-10"
+                )}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={isInView ? { 
+                  opacity: 1, 
+                  y: service.isPopular ? -10 : 0, 
+                  scale: 1 
+                } : { opacity: 0, y: 50, scale: 0.9 }}
                 transition={{
-                  duration: 1.2,
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 30,
+                  duration: 0.6,
                   delay: service.delay,
-                  opacity: { duration: 0.6 }
+                  ease: "easeOut"
                 }}
                 whileHover={{
-                  y: -10,
+                  y: -15,
                   scale: 1.02,
                   transition: { duration: 0.3 }
                 }}
-                className={cn(
-                  "relative group",
-                  service.isPopular && "z-10",
-                  index === 0 || index === 2 ? "z-0" : "z-10"
-                )}
               >
-                
-                
                 <Card className={cn(
-                  "relative h-full p-8 bg-white/80 backdrop-blur-sm border-2 transition-all duration-500 group-hover:shadow-2xl",
+                  "relative h-full p-8 bg-white/90 backdrop-blur-sm border-2 transition-all duration-500 group-hover:shadow-interactive rounded-3xl",
                   service.isPopular 
-                    ? "border-secondary shadow-lg" 
-                    : "border-white/20 hover:border-white/40"
+                    ? "border-secondary shadow-elevated" 
+                    : "border-border/20 hover:border-primary/30"
                 )}>
-                  {/* Icon Container with Animation */}
+                  {service.isPopular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-secondary text-white px-4 py-1 rounded-full text-xs font-semibold">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                  
                   <motion.div 
-                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary p-4 shadow-lg"
+                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary p-4 shadow-card"
                     whileHover={{ 
                       scale: 1.1,
                       rotate: 5,
                       transition: { duration: 0.3 }
                     }}
-                    initial={{ scale: 0, rotate: -180 }}
-                    whileInView={{ scale: 1, rotate: 0 }}
-                    transition={{ delay: service.delay + 0.2, type: "spring" }}
                   >
                     <service.icon className="w-8 h-8 text-white" />
                   </motion.div>
                   
-                  {/* Content */}
                   <div className="text-center">
-                    <motion.h4 
-                      className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-colors duration-300"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: service.delay + 0.4 }}
-                    >
+                    <h4 className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-colors duration-300">
                       {service.title}
-                    </motion.h4>
-                    <motion.p 
-                      className="text-muted-foreground leading-relaxed"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ delay: service.delay + 0.6 }}
-                    >
+                    </h4>
+                    <p className="text-muted-foreground leading-relaxed">
                       {service.description}
-                    </motion.p>
+                    </p>
                   </div>
                   
-                  {/* Decorative Elements */}
                   <motion.div 
-                    className="absolute top-4 right-4 w-2 h-2 bg-secondary rounded-full"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.2, opacity: 1 }}
-                    transition={{ delay: 0.1 }}
-                  />
-                  <motion.div 
-                    className="absolute bottom-4 left-4 w-1 h-1 bg-secondary rounded-full"
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileHover={{ scale: 1.5, opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  />
-                  
-                  {/* Hover Effect Line */}
-                  <motion.div 
-                    className="absolute bottom-0 left-0 h-1 bg-secondary rounded-b-2xl"
+                    className="absolute bottom-0 left-0 h-1 bg-secondary rounded-b-3xl"
                     initial={{ scaleX: 0 }}
                     whileHover={{ scaleX: 1 }}
                     transition={{ duration: 0.3 }}
@@ -411,83 +347,27 @@ const AboutSection = () => {
               </motion.div>
             ))}
           </div>
-          
-          {/* Connecting Lines with Animation */}
-          <motion.div 
-            className="hidden md:block relative mt-8"
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            transition={{ delay: 0.8, duration: 1 }}
-          >
-            <div className="absolute top-1/2 left-1/3 w-1/6 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent transform -translate-y-1/2 opacity-30" />
-            <div className="absolute top-1/2 right-1/3 w-1/6 h-0.5 bg-gradient-to-r from-transparent via-secondary to-transparent transform -translate-y-1/2 opacity-30" />
-          </motion.div>
-        </div>
-
-        {/* Image Carousel Section */}
-        <div className="mb-16">
-          <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our <span className="text-secondary">Maritime Gallery</span>
-            </h3>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Showcasing our expertise and commitment to maritime excellence
-            </p>
-          </motion.div>
-
-          <Carousel
-            plugins={[plugin.current]}
-            className="w-full max-w-5xl mx-auto"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-          >
-            <CarouselContent>
-              {carouselImages.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="overflow-hidden">
-                      <div className="aspect-[4/3] relative">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-4 left-4 text-white">
-                            <p className="font-semibold">{image.title}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
         </div>
 
         {/* Awards & Recognition */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <div className="text-center">
-            <Award className="w-12 h-12 text-secondary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Maritime Professionals at Our Core
-            </h3>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              At our core, we are maritime professionals and we look forward to bringing our 
-              expertise to your organization. One that the broader maritime ecosystem should 
-              not only recognize but take pride in supporting.
-            </p>
-          </div>
-        </div>
+        <motion.div 
+          className="interactive-card text-center"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          whileHover={{ scale: 1.02, y: -5 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Award className="w-12 h-12 text-secondary mx-auto mb-6" />
+          <h3 className="text-2xl font-bold text-foreground mb-4">
+            Maritime Professionals at Our Core
+          </h3>
+          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            At our core, we are maritime professionals and we look forward to bringing our 
+            expertise to your organization. One that the broader maritime ecosystem should 
+            not only recognize but take pride in supporting.
+          </p>
+        </motion.div>
       </div>
     </section>
   );
