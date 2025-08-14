@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import COMPLOGO from "/assets/COMP-LOGO.png";
+import COMPLOGO from "@/assets/COMP-LOGO.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {

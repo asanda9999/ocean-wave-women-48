@@ -117,7 +117,7 @@ const HeroSection = () => {
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
                 style={{
-                  background: "linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--secondary) / 0.8), hsl(var(--secondary)))",
+                  background: "var(--hero-text-gradient)",
                   backgroundSize: "200% 100%",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
