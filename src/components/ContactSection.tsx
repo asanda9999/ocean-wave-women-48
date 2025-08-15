@@ -333,42 +333,7 @@ const ContactSection = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <Card className="bg-white/80 backdrop-blur-sm p-8 md:p-12 border-2 border-border/20 hover:border-primary/20 hover:shadow-elevated transition-all duration-300">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-              Join Africa's Maritime Transformation
-            </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Be part of the maritime industry's evolution with Womaritime Experts. 
-              Together, we're building a safer, more efficient, and sustainable ocean economy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-semibold group"
-                >
-                  Schedule Consultation
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-xl font-semibold"
-                >
-                  Download Company Profile
-                </Button>
-              </motion.div>
-            </div>
-          </Card>
+          
         </motion.div>
       </div>
     </section>

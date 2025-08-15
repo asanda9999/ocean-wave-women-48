@@ -18,9 +18,11 @@ import { motion, useInView } from "framer-motion";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 import FOUNDIMG from "@/assets/FOUND-IMG-removebg-preview.png";
-import COMPLOGO from "@/assets/COMP-LOGO.png";
 import COMPRO from "@/assets/COMPRO.png";
 import VISIONIMG from "@/assets/VISION.png";
+import Logo from "@/assets/Logo.png"  
+
+
 
 const AboutSection = () => {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
@@ -121,7 +123,7 @@ const AboutSection = () => {
             <div className="md:col-span-11 bg-white p-8 md:p-12 relative">
               <div className="absolute top-6 right-6 hidden md:block">
                 <motion.img 
-                  src={COMPLOGO} 
+                  src={Logo} 
                   alt="Womaritime Experts Logo" 
                   className="h-20 w-auto"
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -193,7 +195,7 @@ const AboutSection = () => {
             <div className="bg-white p-8 md:p-12">
               <div className="mb-8">
                 <motion.img 
-                  src={COMPLOGO} 
+                  src={Logo} 
                   alt="Womaritime Experts Logo" 
                   className="h-20 w-auto"
                   whileHover={{ scale: 1.1 }}
@@ -266,7 +268,7 @@ const AboutSection = () => {
               className="text-3xl md:text-4xl font-bold text-foreground mb-4"
               variants={itemVariants}
             >
-              Three Pillars of
+              
               <span className="block text-secondary mt-2">Maritime Excellence</span>
             </motion.h3>
             
@@ -311,9 +313,7 @@ const AboutSection = () => {
                 )}>
                   {service.isPopular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <span className="bg-secondary text-white px-4 py-1 rounded-full text-xs font-semibold">
-                        Most Popular
-                      </span>
+                     
                     </div>
                   )}
                   
@@ -350,24 +350,7 @@ const AboutSection = () => {
         </div>
 
         {/* Awards & Recognition */}
-        <motion.div 
-          className="interactive-card text-center"
-          variants={itemVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          whileHover={{ scale: 1.02, y: -5 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Award className="w-12 h-12 text-secondary mx-auto mb-6" />
-          <h3 className="text-2xl font-bold text-foreground mb-4">
-            Maritime Professionals at Our Core
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            At our core, we are maritime professionals and we look forward to bringing our 
-            expertise to your organization. One that the broader maritime ecosystem should 
-            not only recognize but take pride in supporting.
-          </p>
-        </motion.div>
+    
       </div>
     </section>
   );

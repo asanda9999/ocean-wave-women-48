@@ -2,24 +2,16 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import COMPLOGO from "@/assets/COMP-LOGO.png";
+import Logo from "@/assets/Logo.png"
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Expertise", href: "#expertise" },
+    { name: "What we do", href: "#expertise" },
     { name: "Impact", href: "#impact" },
     { name: "Partners", href: "#partners" },
     { name: "Contact", href: "#contact" },
@@ -27,14 +19,10 @@ const Navigation = () => {
 
   return (
     <motion.nav 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-white/95 backdrop-blur-md shadow-minimal border-b border-border/50' 
-          : 'bg-transparent'
-      }`}
+      className="fixed top-0 w-full z-50 bg-white text-primary shadow-minimal border-b border-border/50 transition-all duration-300"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className="max-w-7xl mx-auto container-padding">
         <div className="flex justify-between items-center h-20">
@@ -45,7 +33,7 @@ const Navigation = () => {
             transition={{ duration: 0.2 }}
           >
             <img 
-              src={COMPLOGO} 
+              src={Logo} 
               alt="Womaritime Experts Logo" 
               className="h-16 w-auto"
             />
@@ -78,13 +66,7 @@ const Navigation = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.6 }}
             >
-              <Button 
-                variant="outline" 
-                size="sm" 
-                className="ml-4 border-primary/20 hover:bg-primary hover:text-white transition-all duration-300"
-              >
-                Get Started
-              </Button>
+             
             </motion.div>
           </div>
 

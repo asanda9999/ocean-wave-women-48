@@ -120,13 +120,7 @@ const GlobalMaritimeYouthSection = () => {
                 As a trusted CSI partner, we help shape purpose-driven leaders who will 
                 steer Africa's ocean economy forward.
               </p>
-              <Button 
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full group transition-all duration-300 hover:scale-105"
-                size="lg"
-              >
-                Become our CSI Partner
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
+              
             </div>
           </div>
           
@@ -202,7 +196,7 @@ const GlobalMaritimeYouthSection = () => {
               </div>
               <div className="space-y-2">
                 <p className="font-semibold text-primary">Phone</p>
-                <p>+27(0) 71 879 5034</p>
+                <p>+27 71 879 5034</p>
               </div>
               <div className="space-y-2">
                 <p className="font-semibold text-primary">Location</p>

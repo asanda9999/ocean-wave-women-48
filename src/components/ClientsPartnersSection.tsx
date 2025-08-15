@@ -45,24 +45,7 @@ const ClientsPartnersSection = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="bg-white rounded-2xl p-8 md:p-12 border border-border shadow-lg">
-            <h3 className="text-2xl md:text-3xl font-bold text-primary mb-4">
-              Ready to Join Our Network?
-            </h3>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Partner with Womaritime Experts and become part of Africa's leading maritime ecosystem.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-ocean text-white px-8 py-3 rounded-lg hover:shadow-maritime transition-all duration-300 font-semibold">
-                Become a Partner
-              </button>
-              <button className="border-2 border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-white transition-all duration-300 font-semibold">
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
+   
       </div>
     </section>
   );
