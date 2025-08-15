@@ -98,7 +98,7 @@ const HeroSection = () => {
           <div className="text-white">
             {/* Badge */}
             <motion.div
-              className="inline-flex items-center space-x-2 glass-card px-4 py-2 mb-8"
+              className="inline-flex items-center space-x-2 bg-transparent px-4 py-2 mb-8"
               variants={itemVariants}
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ duration: 0.2 }}
@@ -173,7 +173,7 @@ const HeroSection = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <motion.div
-                    className="flex items-center justify-center w-14 h-14 glass-card rounded-2xl mb-3 mx-auto group-hover:bg-white/20 transition-all duration-300"
+                    className="flex items-center justify-center w-14 h-14 bg-transparent rounded-2xl mb-3 mx-auto group-hover:bg-white/20 transition-all duration-300"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -189,7 +189,7 @@ const HeroSection = () => {
           {/* Right Column - Interactive Features */}
           <motion.div className="hidden lg:block" variants={itemVariants}>
             <motion.div
-              className="glass-card rounded-3xl p-8 border border-white/20 backdrop-blur-md"
+              className="bg-transparent rounded-3xl p-8 border border-white/20 backdrop-blur-md"
               whileHover={{ scale: 1.02, y: -10 }}
               transition={{ duration: 0.3 }}
             >
