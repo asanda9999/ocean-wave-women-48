@@ -26,7 +26,7 @@ const ClientsPartnersSection = () => {
             <div className="text-muted-foreground">Countries Served</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">200+</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
             <div className="text-muted-foreground">Vessels Supported</div>
           </div>
           <div className="text-center">

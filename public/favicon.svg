@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <style>
+      .anchor { fill: #1a5f4a; }
+    </style>
+  </defs>
+  
+  <!-- Anchor ring -->
+  <circle cx="16" cy="8" r="3" fill="none" stroke="#1a5f4a" stroke-width="2"/>
+  
+  <!-- Anchor shaft -->
+  <rect x="15" y="11" width="2" height="14" class="anchor"/>
+  
+  <!-- Anchor crossbar -->
+  <rect x="10" y="15" width="12" height="2" class="anchor"/>
+  
+  <!-- Left anchor fluke -->
+  <path d="M8 22 Q8 26 12 26 L12 24 Q10 24 10 22 L8 22 Z" class="anchor"/>
+  
+  <!-- Right anchor fluke -->
+  <path d="M24 22 Q24 26 20 26 L20 24 Q22 24 22 22 L24 22 Z" class="anchor"/>
+  
+  <!-- Leaf elements -->
+  <path d="M18 12 Q22 10 24 14 Q22 18 18 16 Z" class="anchor"/>
+  <path d="M20 16 Q24 18 22 22 Q18 20 20 16 Z" class="anchor"/>
+</svg>

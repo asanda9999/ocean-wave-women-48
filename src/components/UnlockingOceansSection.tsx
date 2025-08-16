@@ -26,29 +26,35 @@ const UnlockingOceansSection = () => {
   const podcastImages = [
     {
       id: 1,
-      title: "Doris Van Staden",
-      subtitle: "Maritime Executive"
+      title: "image 1",
+      
     },
     {
       id: 2, 
-      title: "Lizelle Remmers",
-      subtitle: "Ocean Economy Leader"
+      title: "image 2",
+      
     },
     {
       id: 3,
-      title: "David Parker", 
-      subtitle: "Maritime Innovation"
+      title: "image 3", 
+      
     },
     {
       id: 4,
-      title: "Kendra Sothern-Moya",
-      subtitle: "Sustainability Expert"
+      title: "image 4",
+     
     },
     {
       id: 5,
-      title: "Linden McBride",
-      subtitle: "Future Maritime"
+      title: "image 5",
+     
+    },
+    {
+      id: 6,
+      title: "image 6",
+     
     }
+    
   ];
 
   return (

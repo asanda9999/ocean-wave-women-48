@@ -126,13 +126,13 @@ const GlobalMaritimeYouthSection = () => {
           
           {/* Image with enhanced styling */}
           <div className="mb-16">
-            <div className="relative">
+            <div className="relative max-w-4xl mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-3xl transform rotate-1"></div>
               <div className="relative">
                 <img 
                   src={YOUTHIMG} 
                   alt="Global Maritime Youth Team" 
-                  className="w-full h-auto object-cover rounded-3xl shadow-2xl border-4 transform -rotate-1 hover:rotate-0 transition-transform duration-500"
+                  className="w-full h-auto max-h-96 object-contain rounded-3xl shadow-2xl border-4 transform -rotate-1 hover:rotate-0 transition-transform duration-500"
                   style={{ borderColor: '#024b31' }}
                 />
               </div>

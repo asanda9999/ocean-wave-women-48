@@ -29,6 +29,34 @@ const AboutSection = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
+  // Carousel plugin and images
+  const plugin = useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true })
+  );
+  
+  const carouselImages = [
+    {
+      src: "/placeholder.svg",
+      alt: "Womaritime Experts Team Image 1",
+      title: "Maritime Excellence in Action"
+    },
+    {
+      src: "/placeholder.svg", 
+      alt: "Womaritime Experts Team Image 2",
+      title: "Women Leading Maritime Innovation"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Womaritime Experts Team Image 3", 
+      title: "Strategic Maritime Advisory"
+    },
+    {
+      src: "/placeholder.svg",
+      alt: "Womaritime Experts Team Image 4",
+      title: "Vessel Support & Technical Services"
+    }
+  ];
+
   const services = [
     {
       icon: Ship,
@@ -276,6 +304,62 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+
+        {/* Image Carousel Section */}
+        <motion.div 
+          className="mb-20"
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <div className="text-center mb-8">
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+              variants={itemVariants}
+            >
+              Our Maritime <span className="text-secondary">Excellence</span>
+            </motion.h3>
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-2xl mx-auto"
+              variants={itemVariants}
+            >
+              Showcasing our commitment to maritime innovation and professional excellence
+            </motion.p>
+          </div>
+          
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full max-w-5xl mx-auto"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent>
+              {carouselImages.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="overflow-hidden">
+                      <div className="aspect-[4/3] relative">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <p className="font-semibold">{image.title}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </motion.div>
+
   <div id="services" className="mb-20">
           <motion.div 
             className="text-center mb-16"

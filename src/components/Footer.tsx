@@ -19,8 +19,9 @@ const Footer = () => {
   const quickLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Vision", href: "#vision" },
-    { name: "Gallery", href: "#gallery" },
+    { name: "What we do", href: "#services" },
+    { name: "Impact", href: "#impact" },
+    { name: "Partners", href: "#clients" },
     { name: "Contact", href: "#contact" }
   ];
 
@@ -99,7 +100,7 @@ const Footer = () => {
                 {[
                   { icon: Globe, text: "WWW.WOMARITIME.COM" },
                   { icon: Mail, text: "INFO@WOMARITIME.COM" },
-                  { icon: Phone, text: "+27(0) 71 879 5034" },
+                  { icon: Phone, text: "+27 71 879 5034" },
                   { icon: MapPin, text: "SOUTH AFRICA" }
                 ].map((item, index) => (
                   <motion.div 
@@ -174,7 +175,7 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
               <p className="text-white/80 text-sm flex items-center">
                 <Heart className="w-4 h-4 mr-2 text-secondary" />
-                © 2024 Womaritime Experts (PTY) LTD. All rights reserved.
+                © 2025 Hydra Tech Solutions. All rights reserved.
               </p>
               <div className="flex space-x-4 text-sm">
                 <motion.a 
@@ -197,21 +198,7 @@ const Footer = () => {
             <div className="flex items-center space-x-4 mt-4 md:mt-0">
               {/* Social Links */}
               <div className="flex space-x-3">
-                {[Linkedin, Globe, Mail].map((Icon, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      className="text-white/80 hover:text-secondary hover:bg-white/10 rounded-xl transition-all duration-300"
-                    >
-                      <Icon className="w-4 h-4" />
-                    </Button>
-                  </motion.div>
-                ))}
+           
               </div>
 
               {/* Back to Top */}

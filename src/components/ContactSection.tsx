@@ -29,13 +29,7 @@ const ContactSection = () => {
   });
 
   const contactInfo = [
-    {
-      icon: Globe,
-      title: "Website",
-      details: "WWW.WOMARITIME.COM",
-      subtitle: "Visit our official website",
-      color: "text-blue-600"
-    },
+  
     {
       icon: Mail,
       title: "Email Us",
@@ -46,7 +40,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Call Us",
-      details: "+27(0) 71 879 5034",
+      details: "+27 71 879 5034",
       subtitle: "Monday - Friday, 8AM - 6PM",
       color: "text-purple-600"
     },
