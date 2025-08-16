@@ -148,6 +148,9 @@ const HeroSection = () => {
                 <Button
                   size="lg"
                   className="bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-2xl font-semibold group shadow-elevated hover:shadow-interactive transition-all duration-300"
+                  onClick={() => {
+                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   Explore Our Services
                   <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />

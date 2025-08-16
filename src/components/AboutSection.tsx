@@ -25,7 +25,6 @@ import Logo from "@/assets/Logo.png"
 
 
 const AboutSection = () => {
-  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: true }));
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -173,10 +172,7 @@ const AboutSection = () => {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button className="bg-primary hover:bg-primary/90 text-white rounded-xl px-6 py-3 group">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                    </Button>
+                    
                   </motion.div>
                 </div>
               </div>
@@ -247,8 +243,40 @@ const AboutSection = () => {
           </div>
         </motion.div>
 
-        {/* Services Section */}
-        <div id="expertise" className="mb-20">
+        {/* Our Story Card Section */}
+        <div className="mb-20">
+          <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-elevated bg-white/90 backdrop-blur-sm border-2">
+            <div className="flex flex-col items-center justify-center p-8 md:p-12">
+              <img src={FOUNDIMG} alt="Founder" className="w-40 h-40 object-cover rounded-2xl mb-6 shadow-card" />
+              <h2 className="text-4xl font-bold text-primary mb-2">Our Story</h2>
+              <p className="text-lg text-muted-foreground mb-2">Founded in 2019</p>
+              <div className="mt-4 text-center">
+                <span className="font-bold text-secondary text-lg">Londy Ngcobo</span>
+                <p className="text-sm text-muted-foreground">CEO of Womaritime Experts and Founder Global Maritime Youth</p>
+              </div>
+            </div>
+            <div className="bg-primary/90 p-8 md:p-12 flex items-center">
+              <div>
+                <p className="text-white font-semibold mb-4">
+                  Womaritime Experts was born out of a deep understanding of both the operational and strategic needs of the maritime industry. After years at sea including making history as Africa’s first female dredge master and later serving as Maritime Compliance Manager and Designated Person Ashore (DPA) for one of South Africa’s largest state-owned entities, our founder, Londy Ngcobo, identified a crucial gap: the need for stronger alignment between onboard operations and shore-based strategy, and the visible underrepresentation of women in technical and advisory roles across the ocean economy.
+                </p>
+                <p className="text-white mb-4">
+                  In response to the reality that women make up less than 2% of the maritime workforce, Womaritime Experts was founded not as a movement, but as a high-impact service company that delivers tangible results while championing greater representation.
+                </p>
+                <p className="text-white mb-4">
+                  Today, our team of maritime professionals, consultants, and sector leaders reflects the strength, excellence, and diversity that continues to drive Africa’s ocean economy forward.
+                </p>
+                <p className="text-white mb-4">
+                  From boardrooms to shipyards, and from training rooms to global stages, we lead with purpose and the bold belief that transformation is not a side agenda, it is a strategic advantage. One that the broader maritime ecosystem should not only recognize but take pride in supporting.
+                </p>
+                <p className="text-white">
+                  Thank you for taking the time to explore our profile. At our core, we are maritime professionals and we look forward to bringing our expertise to your organization.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+  <div id="services" className="mb-20">
           <motion.div 
             className="text-center mb-16"
             variants={containerVariants}

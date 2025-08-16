@@ -11,9 +11,9 @@ const Navigation = () => {
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "What we do", href: "#expertise" },
+    { name: "What we do", href: "#services" },
     { name: "Impact", href: "#impact" },
-    { name: "Partners", href: "#partners" },
+    { name: "Partners", href: "#clients" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -25,7 +25,7 @@ const Navigation = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className="max-w-7xl mx-auto container-padding">
-        <div className="flex justify-between items-center h-20">
+  <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <motion.div 
             className="flex items-center"
@@ -35,7 +35,7 @@ const Navigation = () => {
             <img 
               src={Logo} 
               alt="Womaritime Experts Logo" 
-              className="h-16 w-auto"
+              className="h-20 w-auto"
             />
           </motion.div>
 
