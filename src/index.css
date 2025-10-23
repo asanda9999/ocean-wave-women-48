@@ -23,7 +23,7 @@ All colors MUST be HSL.
     --secondary: 48 47% 46%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 162 20% 96%;
+    --muted: 162 20% 98%;
     --muted-foreground: 162 15% 45%;
 
     --accent: 48 47% 46%;
@@ -32,72 +32,63 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 162 30% 90%;
-    --input: 162 30% 94%;
+    --border: 162 30% 94%;
+    --input: 162 30% 96%;
     --ring: 162 95% 15%;
 
     /* Maritime-specific design tokens */
     --maritime-deep: 162 95% 15%;
     --maritime-gold: 48 47% 46%;
-    --maritime-light: 162 20% 96%;
-    --maritime-accent: 162 60% 85%;
+    --maritime-light: 162 20% 99%;
+    --maritime-accent: 162 60% 95%;
     
     /* Gradients */
-    --gradient-ocean: linear-gradient(135deg, hsl(162 95% 15%), hsl(162 60% 25%));
+    --gradient-ocean: linear-gradient(135deg, hsl(162 95% 15%), hsl(162 70% 20%));
     --gradient-gold: linear-gradient(135deg, hsl(48 47% 46%), hsl(48 60% 55%));
     --gradient-hero: linear-gradient(135deg, hsl(162 95% 15%) 0%, hsl(162 70% 20%) 50%, hsl(48 47% 46%) 100%);
+    --gradient-minimal: linear-gradient(135deg, hsl(162 95% 15% / 0.03), hsl(162 95% 15% / 0.08));
+    --hero-text-gradient: linear-gradient(90deg, hsl(var(--secondary)), hsl(var(--secondary) / 0.8), hsl(var(--secondary)));
     
-    /* Shadows */
-    --shadow-maritime: 0 10px 30px -10px hsl(162 95% 15% / 0.3);
-    --shadow-gold: 0 5px 20px -5px hsl(48 47% 46% / 0.4);
+    /* Shadows - Minimal and refined */
+    --shadow-minimal: 0 1px 3px 0 hsl(162 95% 15% / 0.05), 0 1px 2px 0 hsl(162 95% 15% / 0.06);
+    --shadow-card: 0 4px 6px -1px hsl(162 95% 15% / 0.05), 0 2px 4px -1px hsl(162 95% 15% / 0.03);
+    --shadow-elevated: 0 10px 15px -3px hsl(162 95% 15% / 0.08), 0 4px 6px -2px hsl(162 95% 15% / 0.03);
+    --shadow-interactive: 0 20px 25px -5px hsl(162 95% 15% / 0.1), 0 10px 10px -5px hsl(162 95% 15% / 0.04);
     
-    /* Animations */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Animations - Smooth and refined */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-spring: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -118,6 +109,145 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer components {
+  /* Interactive elements */
+  .interactive-card {
+    @apply bg-white/80 backdrop-blur-sm border border-border/50 rounded-2xl p-6 transition-all duration-300 hover:shadow-elevated hover:bg-white hover:border-primary/20 hover:-translate-y-1 cursor-pointer;
+  }
+
+  .minimal-button {
+    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2;
+  }
+
+  .glass-card {
+    @apply bg-white/60 backdrop-blur-md border border-white/20 rounded-2xl shadow-card;
+  }
+
+  .floating-element {
+    @apply hover:scale-105 hover:shadow-interactive transition-all duration-300;
+  }
+
+  /* Minimal animations */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  /* Micro-interactions */
+  .micro-bounce {
+    @apply hover:scale-105 active:scale-95 transition-transform duration-200;
+  }
+
+  .subtle-glow {
+    @apply hover:shadow-[0_0_20px_hsl(var(--primary)/0.15)] transition-shadow duration-300;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Utility classes for enhanced UX */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Focus states for accessibility */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2;
+}
+
+/* Minimal section spacing */
+.section-padding {
+  @apply py-16 md:py-24;
+}
+
+.container-padding {
+  @apply px-4 sm:px-6 lg:px-8;
 }

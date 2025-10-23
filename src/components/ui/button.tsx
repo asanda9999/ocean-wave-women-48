@@ -9,23 +9,23 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 hover:shadow-card hover:scale-105 active:scale-95",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:shadow-minimal hover:scale-105 active:scale-95",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-all duration-300 hover:shadow-card hover:scale-105 active:scale-95",
+        ghost: "hover:bg-accent hover:text-accent-foreground transition-all duration-300 hover:scale-105 active:scale-95",
         link: "text-primary underline-offset-4 hover:underline",
-        maritime: "bg-gradient-ocean text-white hover:shadow-lg shadow-maritime transition-all duration-300",
-        gold: "bg-gradient-gold text-white hover:shadow-lg shadow-gold transition-all duration-300",
-        "outline-maritime": "border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-all duration-300",
+        maritime: "bg-gradient-ocean text-white hover:shadow-interactive hover:scale-105 active:scale-95 transition-all duration-300 rounded-xl",
+        gold: "bg-gradient-gold text-white hover:shadow-interactive hover:scale-105 active:scale-95 transition-all duration-300 rounded-xl",
+        "outline-maritime": "border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white hover:scale-105 active:scale-95 transition-all duration-300 rounded-xl",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
+        default: "h-10 px-4 py-2 rounded-xl",
+        sm: "h-9 rounded-xl px-3",
+        lg: "h-12 rounded-xl px-8 text-base font-semibold",
         icon: "h-10 w-10",
       },
     },

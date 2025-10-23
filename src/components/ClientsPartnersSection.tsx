@@ -1,8 +1,8 @@
-import WMCLI from "@/assets/WMCLI.png";
+import WMCLI from "../assets/WMCLI.png";
 
 const ClientsPartnersSection = () => {
   return (
-    <section id="partners" className="py-20 bg-maritime-light">
+    <section id="clients" className="py-20 bg-maritime-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -26,7 +26,7 @@ const ClientsPartnersSection = () => {
             <div className="text-muted-foreground">Countries Served</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">200+</div>
+            <div className="text-3xl md:text-4xl font-bold text-primary mb-2">50+</div>
             <div className="text-muted-foreground">Vessels Supported</div>
           </div>
           <div className="text-center">
@@ -44,7 +44,8 @@ const ClientsPartnersSection = () => {
           />
         </div>
 
-       
+        {/* Call to Action */}
+   
       </div>
     </section>
   );
