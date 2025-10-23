@@ -17,19 +17,19 @@ const ContactSection = () => {
     {
       icon: Globe,
       title: "Website",
-      details: "WWW.WOMARITIME.COM",
+      details: "www.womaritime.com",
       subtitle: "Visit our official website"
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: "INFO@WOMARITIME.COM",
+      details: "info@womaritime.com",
       subtitle: "Quick response within 24 hours"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: "+27(0) 71 879 5034",
+      details: "+27 71 879 5034",
       subtitle: "Monday - Friday, 8AM - 6PM"
     },
     {
@@ -43,7 +43,8 @@ const ContactSection = () => {
   const services = [
     "Vessel Support Services",
     "Strategic Maritime Advisory",
-    "Professional Training Programs"
+    "Professional Training Programs",
+    "Other"
   ];
 
   return (
@@ -51,13 +52,10 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-            <MessageSquare className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Get In Touch</span>
-          </div>
+         
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Transform Your
-            <span className="block text-secondary">Maritime Operations?</span>
+            Don't Hesitate To
+            <span className="block text-secondary">Contact Us</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Connect with our team of maritime experts to discuss how we can 
@@ -72,19 +70,23 @@ const ContactSection = () => {
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 Send Us a Message
               </h3>
-              <form className="space-y-6">
+              <form 
+                className="space-y-6"
+                method="POST"
+                action="https://formsubmit.co/asandamkhize9@gmail.com"
+              >
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Full Name *
                     </label>
-                    <Input placeholder="Your full name" />
+                    <Input name="name" placeholder="Your full name" required />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Email Address *
                     </label>
-                    <Input type="email" placeholder="your.email@company.com" />
+                    <Input name="email" type="email" placeholder="your.email@company.com" required />
                   </div>
                 </div>
                 
@@ -93,13 +95,13 @@ const ContactSection = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Company
                     </label>
-                    <Input placeholder="Your company name" />
+                    <Input name="company" placeholder="Your company name" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Phone Number
                     </label>
-                    <Input placeholder="+27 XX XXX XXXX" />
+                    <Input name="phone" placeholder="+27 XX XXX XXXX" />
                   </div>
                 </div>
 
@@ -107,7 +109,7 @@ const ContactSection = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Service Interest
                   </label>
-                  <select className="w-full px-3 py-2 border border-input rounded-md bg-background">
+                  <select name="service" className="w-full px-3 py-2 border border-input rounded-md bg-background">
                     <option value="">Select a service</option>
                     {services.map((service, index) => (
                       <option key={index} value={service}>
@@ -122,12 +124,23 @@ const ContactSection = () => {
                     Message *
                   </label>
                   <Textarea 
+                    name="message"
                     rows={5} 
-                    placeholder="Tell us about your maritime needs, current challenges, or how we can help..."
+                    placeholder="Tell us about your maritime needs"
+                    required
                   />
                 </div>
 
-                <Button variant="maritime" size="lg" className="w-full group">
+                {/* Hidden fields for FormSubmit configuration */}
+                <input type="hidden" name="_subject" value="New contact form submission - Womaritime" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                {/* Replace the URL below if you want a custom thank-you route */}
+                <input type="hidden" name="_next" value="https://womaritime.com/?submitted=true" />
+                {/* Simple honeypot to reduce spam */}
+                <input type="text" name="_honey" style={{ display: "none" }} />
+
+                <Button type="submit" variant="maritime" size="lg" className="w-full group">
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                   Send Message
                 </Button>
@@ -163,26 +176,6 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              Join Africa's Maritime Transformation
-            </h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Be part of the maritime industry's evolution with Womaritime Experts. 
-              Together, we're building a safer, more efficient, and sustainable ocean economy.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="maritime" size="lg">
-                Schedule Consultation
-              </Button>
-              <Button variant="gold" size="lg">
-                Download Company Profile
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

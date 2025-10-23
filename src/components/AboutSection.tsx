@@ -81,13 +81,9 @@ const AboutSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-            <Heart className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">About Womaritime Experts</span>
-          </div>
+         
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Integrated Maritime Services
-            <span className="block text-secondary">for Africa's Ocean Economy</span>
+            About Womaritime Experts
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             We combine deep industry insight with global standards to keep fleets and 
@@ -128,8 +124,9 @@ const AboutSection = () => {
                 <div>
                   <div className="mb-4">
                     <h3 className="text-xl font-bold mb-2">
-                      <span className="text-maritime-deep">Company</span>
-                      <span className="text-secondary ml-2">PROFILE</span>
+                      <span className="text-maritime-deep">About</span>
+                      <span className="text-secondary ml-2">Womaritime</span>
+                     
                     </h3>
                   </div>
                   
@@ -213,10 +210,10 @@ const AboutSection = () => {
         <div className="mb-16">
           <div className="grid md:grid-cols-2 gap-0">
                          {/* Left Column - White Background */}
-             <div className="bg-white p-4 md:p-8">
+             <div className="bg-white p-4 md:p-8 flex flex-col justify-between h-full">
                {/* Logo and Title */}
-               <div className="mb-6">
-                 <div className="text-center mb-1">
+               <div className="mb-8">
+                 <div className="text-center mb-2">
                    <img 
                      src={COMPLOGO} 
                      alt="Womaritime Experts Logo" 
@@ -229,8 +226,8 @@ const AboutSection = () => {
                </div>
               
               {/* Founder Image */}
-              <div className="text-center mb-6">
-                <div className="w-64 h-64 mx-auto mb-4">
+              <div className="text-center flex-grow flex flex-col justify-center">
+                <div className="w-64 h-64 mx-auto mb-6">
                   <img 
                     src={FOUNDIMG} 
                     alt="Londy Ngcobo - Founder of Womaritime Experts" 
@@ -242,7 +239,8 @@ const AboutSection = () => {
                 <p className="text-sm" style={{ color: '#024b31' }}>CEO of Womaritime Experts and Founder Global Maritime Youth</p>
               </div>
               
-              
+              {/* Spacer to push content up */}
+              <div className="mb-8"></div>
             </div>
             
             {/* Right Column - Dark Green Background */}
@@ -283,7 +281,55 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+  {/* Image Carousel Section */}
+  <div className="mb-16">
+          <motion.div 
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+               <span className="text-secondary">Maritime Excellence</span>
+            </h3>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Proudly women-led, we bring fresh perspective, technical excellence, and a steadfast commitment to a thriving maritime ecosystem.
+            </p>
+          </motion.div>
 
+          <Carousel
+            plugins={[plugin.current]}
+            className="w-full max-w-5xl mx-auto"
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
+          >
+            <CarouselContent>
+              {carouselImages.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1">
+                    <Card className="overflow-hidden">
+                      <div className="aspect-[4/3] relative">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-4 left-4 text-white">
+                            <p className="font-semibold">{image.title}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
         {/* Services Section */}
         <div id="expertise" className="mb-16">
           <motion.div 
@@ -293,13 +339,10 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center space-x-2 bg-primary/10 rounded-full px-4 py-2 mb-4">
-              <Anchor className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Our Core Services</span>
-            </div>
+            
             <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Three Pillars of
-              <span className="block text-secondary">Maritime Excellence</span>
+              Our Services
+              <span className="block text-secondary"></span>
             </h3>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Comprehensive solutions that drive your maritime operations forward with precision and expertise.
@@ -346,14 +389,14 @@ const AboutSection = () => {
                 
                 
                 <Card className={cn(
-                  "relative h-full p-8 bg-white/80 backdrop-blur-sm border-2 transition-all duration-500 group-hover:shadow-2xl",
+                  "relative h-full p-8 bg-white/80 backdrop-blur-sm border-2 transition-all duration-500 group-hover:shadow-2xl group-hover:bg-maritime-deep",
                   service.isPopular 
                     ? "border-secondary shadow-lg" 
                     : "border-white/20 hover:border-white/40"
                 )}>
                   {/* Icon Container with Animation */}
                   <motion.div 
-                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary p-4 shadow-lg"
+                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary p-4 shadow-lg group-hover:bg-white transition-colors duration-500"
                     whileHover={{ 
                       scale: 1.1,
                       rotate: 5,
@@ -363,13 +406,13 @@ const AboutSection = () => {
                     whileInView={{ scale: 1, rotate: 0 }}
                     transition={{ delay: service.delay + 0.2, type: "spring" }}
                   >
-                    <service.icon className="w-8 h-8 text-white" />
+                    <service.icon className="w-8 h-8 text-white group-hover:text-maritime-deep transition-colors duration-500" />
                   </motion.div>
                   
                   {/* Content */}
                   <div className="text-center">
                     <motion.h4 
-                      className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-colors duration-300"
+                      className="text-xl font-bold text-foreground mb-4 group-hover:text-white transition-colors duration-500"
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: service.delay + 0.4 }}
@@ -377,7 +420,7 @@ const AboutSection = () => {
                       {service.title}
                     </motion.h4>
                     <motion.p 
-                      className="text-muted-foreground leading-relaxed"
+                      className="text-muted-foreground leading-relaxed group-hover:text-white/90 transition-colors duration-500"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       transition={{ delay: service.delay + 0.6 }}
@@ -424,62 +467,14 @@ const AboutSection = () => {
           </motion.div>
         </div>
 
-        {/* Image Carousel Section */}
-        <div className="mb-16">
-          <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our <span className="text-secondary">Maritime Gallery</span>
-            </h3>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Showcasing our expertise and commitment to maritime excellence
-            </p>
-          </motion.div>
-
-          <Carousel
-            plugins={[plugin.current]}
-            className="w-full max-w-5xl mx-auto"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-          >
-            <CarouselContent>
-              {carouselImages.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="overflow-hidden">
-                      <div className="aspect-[4/3] relative">
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-4 left-4 text-white">
-                            <p className="font-semibold">{image.title}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+      
 
         {/* Awards & Recognition */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <div className="text-center">
             <Award className="w-12 h-12 text-secondary mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Maritime Professionals at Our Core
+              Trusted Aboard Trusted Ashore
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               At our core, we are maritime professionals and we look forward to bringing our 

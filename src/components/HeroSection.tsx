@@ -19,11 +19,8 @@ const HeroSection = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
-            {/* Badge */}
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <Anchor className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">Proudly Women-Led Maritime Excellence</span>
-            </div>
+          
+            
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
@@ -39,10 +36,7 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <Button variant="gold" size="lg" className="group">
-                Explore Our Services
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+              
             </div>
 
             {/* Key Stats */}
@@ -52,7 +46,7 @@ const HeroSection = () => {
                   <Shield className="w-6 h-6 text-secondary" />
                 </div>
                 <div className="text-2xl font-bold text-secondary">100%</div>
-                <div className="text-sm text-white/80">Safety Standards</div>
+                <div className="text-sm text-white/80">Female Led</div>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center w-12 h-12 bg-white/10 rounded-lg mb-2 mx-auto">
@@ -71,30 +65,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Additional Content */}
-          <div className="hidden lg:block">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h3 className="text-2xl font-bold text-white mb-4">Why Choose Womaritime?</h3>
-              <ul className="space-y-4 text-white/90">
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Fresh perspective from women-led leadership</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Technical excellence meets industry innovation</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Commitment to sustainable maritime practices</span>
-                </li>
-                <li className="flex items-start space-x-3">
-                  <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                  <span>Comprehensive vessel support solutions</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+          
         </div>
       </div>
 
