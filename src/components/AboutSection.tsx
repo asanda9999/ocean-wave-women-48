@@ -20,8 +20,7 @@ import { cn } from "@/lib/utils";
 import FOUNDIMG from "@/assets/FOUND-IMG-removebg-preview.png";
 import COMPRO from "@/assets/COMPRO.png";
 import VISIONIMG from "@/assets/VISION.png";
-import Logo from "@/assets/Logo.png"  
-
+import Logo from "@/assets/Logo.png";
 
 
 const AboutSection = () => {
@@ -70,7 +69,7 @@ const AboutSection = () => {
       title: "Strategic Maritime Advisory",
       description: "Expert guidance across regulatory compliance, project management, procurement solutions and shore-to-ship integration.",
       delay: 0.2,
-      isPopular: true
+      isPopular: false
     },
     {
       icon: BookOpen,
@@ -97,7 +96,7 @@ const AboutSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
@@ -116,16 +115,15 @@ const AboutSection = () => {
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
           >
-            <Heart className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">About Womaritime Experts</span>
+            
           </motion.div>
           
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6"
             variants={itemVariants}
           >
-            Integrated Maritime Services
-            <span className="block text-secondary mt-2">for Africa's Ocean Economy</span>
+            About Womaritime Experts
+            <span className="block text-secondary mt-2"></span>
           </motion.h2>
           
           <motion.p 
@@ -149,12 +147,10 @@ const AboutSection = () => {
             
             <div className="md:col-span-11 bg-white p-8 md:p-12 relative">
               <div className="absolute top-6 right-6 hidden md:block">
-                <motion.img 
+                <img 
                   src={Logo} 
                   alt="Womaritime Experts Logo" 
-                  className="h-20 w-auto"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ duration: 0.3 }}
+                  className="h-32 w-auto"
                 />
               </div>
               
@@ -176,8 +172,7 @@ const AboutSection = () => {
                 <div className="space-y-6">
                   <div>
                     <h3 className="text-2xl font-bold mb-3">
-                      <span className="text-primary">Company</span>
-                      <span className="text-secondary ml-2">PROFILE</span>
+                      <span className="text-primary">About Womaritime</span>
                     </h3>
                   </div>
                   
@@ -196,12 +191,6 @@ const AboutSection = () => {
                     </p>
                   </div>
                   
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    
-                  </motion.div>
                 </div>
               </div>
             </div>
@@ -218,12 +207,10 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-elevated">
             <div className="bg-white p-8 md:p-12">
               <div className="mb-8">
-                <motion.img 
+                <img 
                   src={Logo} 
                   alt="Womaritime Experts Logo" 
-                  className="h-20 w-auto"
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
+                  className="h-32 w-auto"
                 />
               </div>
 
@@ -274,18 +261,18 @@ const AboutSection = () => {
         {/* Our Story Card Section */}
         <div className="mb-20">
           <div className="grid md:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-elevated bg-white/90 backdrop-blur-sm border-2">
-            <div className="flex flex-col items-center justify-center p-8 md:p-12">
-              <img src={FOUNDIMG} alt="Founder" className="w-40 h-40 object-cover rounded-2xl mb-6 shadow-card" />
-              <h2 className="text-4xl font-bold text-primary mb-2">Our Story</h2>
-              <p className="text-lg text-muted-foreground mb-2">Founded in 2019</p>
-              <div className="mt-4 text-center">
-                <span className="font-bold text-secondary text-lg">Londy Ngcobo</span>
-                <p className="text-sm text-muted-foreground">CEO of Womaritime Experts and Founder Global Maritime Youth</p>
+            <div className="flex flex-col items-center justify-center p-12 md:p-16 min-h-[600px]">
+              <img src={FOUNDIMG} alt="Founder" className="w-56 h-56 object-cover rounded-2xl mb-8 shadow-card" />
+              <h2 className="text-5xl font-bold text-primary mb-4">Our Story</h2>
+              <p className="text-xl text-muted-foreground mb-6">Founded in 2019</p>
+              <div className="text-center space-y-3">
+                <span className="font-bold text-secondary text-2xl block">Londy Ngcobo</span>
+                <p className="text-base text-muted-foreground max-w-sm leading-relaxed">CEO of Womaritime Experts and Founder Global Maritime Youth</p>
               </div>
             </div>
             <div className="bg-primary/90 p-8 md:p-12 flex items-center">
               <div>
-                <p className="text-white font-semibold mb-4">
+                <p className="text-white mb-4">
                   Womaritime Experts was born out of a deep understanding of both the operational and strategic needs of the maritime industry. After years at sea including making history as Africa’s first female dredge master and later serving as Maritime Compliance Manager and Designated Person Ashore (DPA) for one of South Africa’s largest state-owned entities, our founder, Londy Ngcobo, identified a crucial gap: the need for stronger alignment between onboard operations and shore-based strategy, and the visible underrepresentation of women in technical and advisory roles across the ocean economy.
                 </p>
                 <p className="text-white mb-4">
@@ -304,22 +291,107 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-  {/* Image Carousel Section */}
-  <div className="mb-16">
+
+        <div id="services" className="mb-20">
           <motion.div 
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center mb-16"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
           >
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-               <span className="text-secondary">Maritime Excellence</span>
-            </h3>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Proudly women-led, we bring fresh perspective, technical excellence, and a steadfast commitment to a thriving maritime ecosystem.
-            </p>
+            <motion.div 
+              className="inline-flex items-center space-x-2 bg-primary/5 rounded-full px-4 py-2 mb-6"
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+            >
+              
+            </motion.div>
+            
+            <motion.h3 
+              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
+              variants={itemVariants}
+            >
+              <span className="block text-primary mt-2">Our Services</span>
+            </motion.h3>
+            
+            <motion.p 
+              className="text-xl text-muted-foreground max-w-3xl mx-auto"
+              variants={itemVariants}
+            >
+              At our core, we are maritime professionals and we look forward to bringing our expertise to your organization.
+            </motion.p>
           </motion.div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                className={cn(
+                  "relative group",
+                  service.isPopular && "z-10"
+                )}
+                initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                animate={isInView ? { 
+                  opacity: 1, 
+                  y: service.isPopular ? -10 : 0, 
+                  scale: 1 
+                } : { opacity: 0, y: 50, scale: 0.9 }}
+                transition={{
+                  duration: 0.6,
+                  delay: service.delay,
+                  ease: "easeOut"
+                }}
+                whileHover={{
+                  y: -15,
+                  scale: 1.02,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <Card className={cn(
+                  "relative h-full p-8 bg-white/90 backdrop-blur-sm border-2 transition-all duration-500 group-hover:shadow-interactive rounded-3xl group-hover:bg-primary",
+                  service.isPopular 
+                    ? "border-secondary shadow-elevated" 
+                    : "border-border/20 hover:border-primary/30"
+                )}>
+                  {service.isPopular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-secondary text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        Popular
+                      </div>
+                    </div>
+                  )}
+                  
+                  <motion.div 
+                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary p-4 shadow-card"
+                    whileHover={{ 
+                      scale: 1.1,
+                      rotate: 5,
+                      transition: { duration: 0.3 }
+                    }}
+                  >
+                    <service.icon className="w-8 h-8 text-white" />
+                  </motion.div>
+                  
+                  <div className="text-center">
+                    <h4 className="text-xl font-bold text-foreground mb-4 group-hover:text-white transition-colors duration-300">
+                      {service.title}
+                    </h4>
+                    <p className="text-muted-foreground group-hover:text-white/90 leading-relaxed transition-colors duration-300">
+                      {service.description}
+                    </p>
+                  </div>
+                  
+                  <motion.div 
+                    className="absolute bottom-0 left-0 h-1 bg-secondary rounded-b-3xl"
+                    initial={{ scaleX: 0 }}
+                    whileHover={{ scaleX: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Image Carousel Section */}
         <motion.div 
@@ -374,108 +446,6 @@ const AboutSection = () => {
           </Carousel>
         </motion.div>
 
-        <div id="services" className="mb-20">
-          <motion.div 
-            className="text-center mb-16"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
-            <motion.div 
-              className="inline-flex items-center space-x-2 bg-primary/5 rounded-full px-4 py-2 mb-6"
-              variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-            >
-              <Anchor className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">Our Core Services</span>
-            </motion.div>
-            
-            <motion.h3 
-              className="text-3xl md:text-4xl font-bold text-foreground mb-4"
-              variants={itemVariants}
-            >
-              <span className="block text-secondary mt-2">Maritime Excellence</span>
-            </motion.h3>
-            
-            <motion.p 
-              className="text-xl text-muted-foreground max-w-3xl mx-auto"
-              variants={itemVariants}
-            >
-              Comprehensive solutions that drive your maritime operations forward with precision and expertise.
-            </motion.p>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <motion.div
-                key={index}
-                className={cn(
-                  "relative group",
-                  service.isPopular && "z-10"
-                )}
-                initial={{ opacity: 0, y: 50, scale: 0.9 }}
-                animate={isInView ? { 
-                  opacity: 1, 
-                  y: service.isPopular ? -10 : 0, 
-                  scale: 1 
-                } : { opacity: 0, y: 50, scale: 0.9 }}
-                transition={{
-                  duration: 0.6,
-                  delay: service.delay,
-                  ease: "easeOut"
-                }}
-                whileHover={{
-                  y: -15,
-                  scale: 1.02,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <Card className={cn(
-                  "relative h-full p-8 bg-white/90 backdrop-blur-sm border-2 transition-all duration-500 group-hover:shadow-interactive rounded-3xl",
-                  service.isPopular 
-                    ? "border-secondary shadow-elevated" 
-                    : "border-border/20 hover:border-primary/30"
-                )}>
-                  {service.isPopular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                     
-                    </div>
-                  )}
-                  
-                  <motion.div 
-                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-secondary p-4 shadow-card"
-                    whileHover={{ 
-                      scale: 1.1,
-                      rotate: 5,
-                      transition: { duration: 0.3 }
-                    }}
-                  >
-                    <service.icon className="w-8 h-8 text-white" />
-                  </motion.div>
-                  
-                  <div className="text-center">
-                    <h4 className="text-xl font-bold text-foreground mb-4 group-hover:text-secondary transition-colors duration-300">
-                      {service.title}
-                    </h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                  
-                  <motion.div 
-                    className="absolute bottom-0 left-0 h-1 bg-secondary rounded-b-3xl"
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
-        {/* Awards & Recognition */}
-    
       </div>
     </section>
   );

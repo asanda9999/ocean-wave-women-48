@@ -27,17 +27,13 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo - Far Left */}
-          <motion.div 
-            className="flex items-center flex-shrink-0 -ml-2"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
+          <div className="flex items-center flex-shrink-0 -ml-2">
             <img 
               src={Logo} 
               alt="Womaritime Experts Logo" 
-              className="h-24 w-auto"
+              className="h-32 w-auto"
             />
-          </motion.div>
+          </div>
 
           {/* Desktop Navigation - Far Right */}
           <div className="hidden md:flex items-center space-x-1 ml-auto">

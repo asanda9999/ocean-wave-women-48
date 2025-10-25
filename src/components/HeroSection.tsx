@@ -103,8 +103,8 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               transition={{ duration: 0.2 }}
             >
-              <Anchor className="w-4 h-4 text-secondary" />
-              <span className="text-sm font-medium">Proudly Women-Led Maritime Excellence</span>
+            
+            
             </motion.div>
 
             {/* Main Heading */}
@@ -145,16 +145,7 @@ const HeroSection = () => {
               variants={itemVariants}
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button
-                  size="lg"
-                  className="bg-secondary hover:bg-secondary/90 text-white px-8 py-4 rounded-2xl font-semibold group shadow-elevated hover:shadow-interactive transition-all duration-300"
-                  onClick={() => {
-                    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  Explore Our Services
-                  <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
+               
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -165,9 +156,9 @@ const HeroSection = () => {
             {/* Key Stats */}
             <motion.div className="grid grid-cols-3 gap-8" variants={itemVariants}>
               {[
-                { icon: Shield, value: "100%", label: "Safety Standards" },
+                { icon: Shield, value: "100%", label: "Women Led" },
                 { icon: Globe, value: "Global", label: "Standards" },
-                { icon: Anchor, value: "Expert", label: "Maritime Team" }
+                { icon: Anchor, value: "Expert", label: "Maritime Consulting" }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -191,37 +182,7 @@ const HeroSection = () => {
 
           {/* Right Column - Interactive Features */}
           <motion.div className="hidden lg:block" variants={itemVariants}>
-            <motion.div
-              className="bg-transparent rounded-3xl p-8 border border-white/20 backdrop-blur-md"
-              whileHover={{ scale: 1.02, y: -10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h3 className="text-2xl font-bold text-white mb-6">Why Choose Womaritime?</h3>
-              <ul className="space-y-4 text-white/90">
-                {[
-                  "Fresh perspective from women-led leadership",
-                  "Technical excellence meets industry innovation",
-                  "Commitment to sustainable maritime practices",
-                  "Comprehensive vessel support solutions"
-                ].map((item, index) => (
-                  <motion.li
-                    key={index}
-                    className="flex items-start space-x-3 group cursor-pointer"
-                    whileHover={{ x: 10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <motion.div
-                      className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"
-                      whileHover={{ scale: 1.5 }}
-                      transition={{ duration: 0.2 }}
-                    />
-                    <span className="group-hover:text-white transition-colors duration-200">
-                      {item}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
-            </motion.div>
+         
           </motion.div>
         </motion.div>
       </div>
