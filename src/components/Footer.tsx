@@ -80,12 +80,10 @@ const Footer = () => {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="p-3 bg-secondary rounded-2xl shadow-card">
-                  <Anchor className="w-6 h-6 text-white" />
-                </div>
+               
                 <div>
                   <span className="text-xl font-bold">Womaritime Experts</span>
-                  <span className="block text-sm text-white/80">(PTY) LTD</span>
+                  <span className="block text-sm text-white/80">PTY LTD</span>
                 </div>
               </motion.div>
               
@@ -98,8 +96,8 @@ const Footer = () => {
               {/* Contact Info */}
               <div className="space-y-4">
                 {[
-                  { icon: Globe, text: "WWW.WOMARITIME.COM" },
-                  { icon: Mail, text: "INFO@WOMARITIME.COM" },
+                  { icon: Globe, text: "www.womaritime.com" },
+                  { icon: Mail, text: "info@womaritime.com" },
                   { icon: Phone, text: "+27 71 879 5034" },
                   { icon: MapPin, text: "SOUTH AFRICA" }
                 ].map((item, index) => (
@@ -174,7 +172,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
               <p className="text-white/80 text-sm flex items-center">
-                <Heart className="w-4 h-4 mr-2 text-secondary" />
+                
                 © 2025 Hydra Tech Solutions. All rights reserved.
               </p>
               <div className="flex space-x-4 text-sm">

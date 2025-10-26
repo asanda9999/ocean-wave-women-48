@@ -32,7 +32,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email Us",
-      details: "INFO@WOMARITIME.COM",
+      details: "info@womaritime.com",
       subtitle: "Quick response within 24 hours",
       color: "text-green-600"
     },
@@ -101,16 +101,15 @@ const ContactSection = () => {
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
           >
-            <MessageSquare className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Get In Touch</span>
+           
           </motion.div>
           
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6"
             variants={itemVariants}
           >
-            Ready to Transform Your
-            <span className="block text-secondary mt-2">Maritime Operations?</span>
+            Don't hesitate to
+            <span className="block text-secondary mt-2">Contact Us</span>
           </motion.h2>
           
           <motion.p 
@@ -238,7 +237,7 @@ const ContactSection = () => {
                   <Textarea 
                     name="message"
                     rows={5} 
-                    placeholder="Tell us about your maritime needs, current challenges, or how we can help..."
+                    placeholder="Tell us what you need — we’re ready to assist"
                     value={formData.message}
                     onChange={handleInputChange}
                     className="border-2 border-border/30 focus:border-primary/50 rounded-xl transition-all duration-300 resize-none"

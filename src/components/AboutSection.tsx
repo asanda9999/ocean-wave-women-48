@@ -96,7 +96,7 @@ const AboutSection = () => {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" }
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
     }
   };
 
@@ -405,7 +405,7 @@ const AboutSection = () => {
               className="text-3xl md:text-4xl font-bold text-foreground mb-4"
               variants={itemVariants}
             >
-              Our Maritime <span className="text-secondary">Excellence</span>
+               <span className="text-secondary">Our Maritime Excellence</span>
             </motion.h3>
             <motion.p 
               className="text-xl text-muted-foreground max-w-2xl mx-auto"

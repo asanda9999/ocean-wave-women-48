@@ -55,43 +55,43 @@ const GlobalMaritimeYouthSection = () => {
       id: 1,
       thumbnail: EP8,
       title: "Episode 8",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_1"
+      youtubeUrl: "https://www.youtube.com/watch?v=Lsitjgu1dxg"
     },
     {
       id: 2,
       thumbnail: EP7,
       title: "Episode 7",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_2"
+      youtubeUrl: "https://www.youtube.com/watch?v=gkL9qgHCn3U"
     },
     {
       id: 3,
       thumbnail: EP6,
       title: "Episode 6",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_3"
+      youtubeUrl: "https://www.youtube.com/watch?v=Uq2RJ1skaO4"
     },
     {
       id: 4,
       thumbnail: EP5,
       title: "Episode 5",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_4"
+      youtubeUrl: "https://www.youtube.com/watch?v=zeUeZJzPfOc"
     },
     {
       id: 5,
       thumbnail: EP4,
       title: "Episode 4",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_5"
+      youtubeUrl: "https://www.youtube.com/watch?v=Zr5Ro4UWezk"
     },
     {
       id: 6,
       thumbnail: EP3,
       title: "Episode 3",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_6"
+      youtubeUrl: "https://www.youtube.com/watch?v=EL5jBUZFwAg"
     },
     {
       id: 7,
       thumbnail: EP2,
       title: "Episode 2",
-      youtubeUrl: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_6"
+      youtubeUrl: "https://www.youtube.com/watch?v=s8ZBJek5Exc"
     },
     {
       id: 8,
@@ -142,9 +142,7 @@ const GlobalMaritimeYouthSection = () => {
           </div>
         {/* Fun and energetic header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-6 py-3 mb-6 border-2 border-primary/20">
-            <span className="text-sm font-semibold text-primary">Empowering the Next Generation</span>
-          </div>
+         
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6 leading-tight transform transition-all duration-1000 hover:scale-105">
             Global Maritime Youth
           </h2>
@@ -284,9 +282,7 @@ const GlobalMaritimeYouthSection = () => {
           {/* Fun Maritime Youth Image Carousel */}
           <div className="mb-16">
             <div className="text-center mb-8">
-              <div className="inline-flex items-center space-x-3 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full px-6 py-3 mb-6 border-2 border-primary/20">
-                <span className="text-sm font-semibold text-primary">Youth in Action</span>
-              </div>
+             
               <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
                 Global Maritime Youth Gallery
               </h3>
