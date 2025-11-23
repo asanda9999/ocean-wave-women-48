@@ -11,7 +11,9 @@ import {
   MessageSquare,
   Globe,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Loader2,
+  AlertCircle
 } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
@@ -27,6 +29,11 @@ const ContactSection = () => {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  
+  // Replace this with your personal email address
+  const YOUR_EMAIL = 'asandamkhize9@gmail.com';
 
   const contactInfo = [
     {
@@ -84,6 +91,72 @@ const ContactSection = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Reset status when user starts typing again
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const form = e.currentTarget;
+      const formDataToSend = new FormData(form);
+      
+      // Add subject line for better email organization
+      const subject = formData.service 
+        ? `Contact Form: ${formData.service}`
+        : 'Contact Form Submission';
+      formDataToSend.append('_subject', subject);
+      
+      // URL encode the email for the endpoint
+      const encodedEmail = encodeURIComponent(YOUR_EMAIL);
+      
+      // Submit to FormSubmit
+      const response = await fetch(`https://formsubmit.co/ajax/${encodedEmail}`, {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+        // Reset status after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -135,7 +208,37 @@ const ContactSection = () => {
                 Send Us a Message
               </h3>
               
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Success Message */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-green-50 border-2 border-green-200 rounded-xl flex items-center space-x-3"
+                  >
+                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                    <p className="text-green-800 font-medium">
+                      Message sent successfully! We'll get back to you soon.
+                    </p>
+                  </motion.div>
+                )}
+
+                {/* Error Message */}
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-red-50 border-2 border-red-200 rounded-xl flex items-center space-x-3"
+                  >
+                    <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0" />
+                    <p className="text-red-800 font-medium">
+                      {!formData.name || !formData.email || !formData.message 
+                        ? 'Please fill in all required fields (marked with *).'
+                        : 'Something went wrong. Please try again or contact us directly.'}
+                    </p>
+                  </motion.div>
+                )}
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <motion.div
                     whileFocus={{ scale: 1.02 }}
@@ -244,16 +347,32 @@ const ContactSection = () => {
                   />
                 </motion.div>
 
+                {/* Hidden input for FormSubmit redirect (optional - redirects to same page after submission) */}
+                <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="box" />
+
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                 >
                   <Button 
+                    type="submit"
                     size="lg" 
-                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-4 font-semibold group shadow-card hover:shadow-elevated transition-all duration-300"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-white rounded-xl py-4 font-semibold group shadow-card hover:shadow-elevated transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform duration-300" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </motion.div>
               </form>
