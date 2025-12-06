@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Lightbulb, Globe, Users, Target, ChevronRight, ArrowRight, ExternalLink, Play, Plus, Minus, Eye } from "lucide-react";
+import { GraduationCap, Lightbulb, Globe, Users, Target, ChevronRight, ArrowRight, ExternalLink, Play, Plus, Minus } from "lucide-react";
 import YOUTHLOGO from "@/assets/YOUTH-LOGO-removebg-preview.png";
 import YOUTHIMG from "@/assets/YOUTH-IMG.png";
 import EP8 from "@/assets/EP8.png";
@@ -10,6 +10,15 @@ import EP4 from "@/assets/EP4.png";
 import EP3 from "@/assets/EP3.png";
 import EP2 from "@/assets/EP2.png";
 import EP1 from "@/assets/EP1.png";
+import GMY1 from "@/assets/GMY/_EBP0845.jpg";
+import GMY2 from "@/assets/GMY/_EBP8918_Original.jpg";
+import GMY3 from "@/assets/GMY/Copy of WhatsApp Image 2023-10-27 at 16.10.54.jpg";
+import GMY4 from "@/assets/GMY/GMY13.JPG";
+import GMY5 from "@/assets/GMY/GMYY.JPG";
+import GMY6 from "@/assets/GMY/image (1).png";
+import GMY7 from "@/assets/GMY/IMG-20211110-WA0006.jpg";
+import GMY8 from "@/assets/GMY/IMG-20211110-WA0015.jpg";
+import GMY9 from "@/assets/GMY/WhatsApp Image 2021-01-14 at 13.27.44 (1).jpg";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Card } from "@/components/ui/card";
@@ -28,24 +37,49 @@ const GlobalMaritimeYouthSection = () => {
   );
   const carouselImages = [
     {
-      src: "/placeholder.svg",
-      alt: "Maritime Youth Image 1",
-      title: "Replace with your youth image 1"
+      src: GMY1,
+      alt: "Global Maritime Youth Image 1",
+      title: "Global Maritime Youth"
     },
     {
-      src: "/placeholder.svg",
-      alt: "Maritime Youth Image 2",
-      title: "Replace with your youth image 2"
+      src: GMY2,
+      alt: "Global Maritime Youth Image 2",
+      title: "Global Maritime Youth"
     },
     {
-      src: "/placeholder.svg",
-      alt: "Maritime Youth Image 3",
-      title: "Replace with your youth image 3"
+      src: GMY3,
+      alt: "Global Maritime Youth Image 3",
+      title: "Global Maritime Youth"
     },
-     {
-      src: "/placeholder.svg",
-      alt: "Maritime Youth Image 3",
-      title: "Replace with your youth image 4"
+    {
+      src: GMY4,
+      alt: "Global Maritime Youth Image 4",
+      title: "Global Maritime Youth"
+    },
+    {
+      src: GMY5,
+      alt: "Global Maritime Youth Image 5",
+      title: "Global Maritime Youth"
+    },
+    {
+      src: GMY6,
+      alt: "Global Maritime Youth Image 6",
+      title: "Global Maritime Youth"
+    },
+    {
+      src: GMY7,
+      alt: "Global Maritime Youth Image 7",
+      title: "Global Maritime Youth"
+    },
+    {
+      src: GMY8,
+      alt: "Global Maritime Youth Image 8",
+      title: "Global Maritime Youth"
+    },
+    {
+      src: GMY9,
+      alt: "Global Maritime Youth Image 9",
+      title: "Global Maritime Youth"
     }
   ];
 
@@ -307,25 +341,6 @@ const GlobalMaritimeYouthSection = () => {
                             alt={image.alt}
                             className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
                           />
-                          {/* Enhanced overlay with more interactive elements */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                            <div className="absolute bottom-4 left-4 text-white">
-                              <p className="font-semibold text-lg mb-1">{image.title}</p>
-                              <p className="text-sm opacity-90">Click to view details</p>
-                            </div>
-                            {/* Eye icon for viewing */}
-                            <div className="absolute top-4 right-4">
-                              <div className="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-white/30 transition-all duration-300">
-                                <Eye className="w-4 h-4 text-white" />
-                              </div>
-                            </div>
-                            {/* Expand indicator */}
-                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                              <div className="w-12 h-12 bg-primary/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110">
-                                <Plus className="w-6 h-6 text-white" />
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </Card>
                     </div>

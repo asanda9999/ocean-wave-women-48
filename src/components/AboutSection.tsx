@@ -21,6 +21,25 @@ import FOUNDIMG from "@/assets/FOUND-IMG-removebg-preview.png";
 import COMPRO from "@/assets/COMPRO.png";
 import VISIONIMG from "@/assets/VISION.png";
 import Logo from "@/assets/Logo.png";
+import WME1 from "@/assets/WME/WME1.jpg";
+import WME2 from "@/assets/WME/WME2.jpg";
+import WME3 from "@/assets/WME/WME3.jpg";
+import WME4 from "@/assets/WME/WME4.jpg";
+import WME5 from "@/assets/WME/WME5.jpg";
+import WME6 from "@/assets/WME/WME6.jpg";
+import WME7 from "@/assets/WME/WME7.jpg";
+import WME8 from "@/assets/WME/WME8.jpg";
+import WME9 from "@/assets/WME/WME9.jpg";
+import WME10 from "@/assets/WME/WME10.jpg";
+import WME11 from "@/assets/WME/WME11.jpg";
+// @ts-expect-error - JPG files are valid image imports
+import WME12 from "@/assets/WME/WME12.JPG";
+// @ts-expect-error - JPG files are valid image imports
+import WME13 from "@/assets/WME/WME13.JPG";
+// @ts-expect-error - JPG files are valid image imports
+import WME14 from "@/assets/WME/WME14.JPG";
+import WME15 from "@/assets/WME/WME15.jpg";
+import WME16 from "@/assets/WME/WME16.jpg";
 
 
 const AboutSection = () => {
@@ -35,24 +54,84 @@ const AboutSection = () => {
   
   const carouselImages = [
     {
-      src: "/placeholder.svg",
-      alt: "Womaritime Experts Team Image 1",
+      src: WME1,
+      alt: "Maritime Excellence Image 1",
       title: "Maritime Excellence in Action"
     },
     {
-      src: "/placeholder.svg", 
-      alt: "Womaritime Experts Team Image 2",
+      src: WME2, 
+      alt: "Maritime Excellence Image 2",
       title: "Women Leading Maritime Innovation"
     },
     {
-      src: "/placeholder.svg",
-      alt: "Womaritime Experts Team Image 3", 
+      src: WME3,
+      alt: "Maritime Excellence Image 3", 
       title: "Strategic Maritime Advisory"
     },
     {
-      src: "/placeholder.svg",
-      alt: "Womaritime Experts Team Image 4",
+      src: WME4,
+      alt: "Maritime Excellence Image 4",
       title: "Vessel Support & Technical Services"
+    },
+    {
+      src: WME5,
+      alt: "Maritime Excellence Image 5",
+      title: "Professional Maritime Services"
+    },
+    {
+      src: WME6,
+      alt: "Maritime Excellence Image 6",
+      title: "Maritime Training Excellence"
+    },
+    {
+      src: WME7,
+      alt: "Maritime Excellence Image 7",
+      title: "Industry Leadership"
+    },
+    {
+      src: WME8,
+      alt: "Maritime Excellence Image 8",
+      title: "Maritime Operations"
+    },
+    {
+      src: WME9,
+      alt: "Maritime Excellence Image 9",
+      title: "Expert Advisory Services"
+    },
+    {
+      src: WME10,
+      alt: "Maritime Excellence Image 10",
+      title: "Maritime Excellence Showcase"
+    },
+    {
+      src: WME11,
+      alt: "Maritime Excellence Image 11",
+      title: "Professional Excellence"
+    },
+    {
+      src: WME12,
+      alt: "Maritime Excellence Image 12",
+      title: "Maritime Innovation"
+    },
+    {
+      src: WME13,
+      alt: "Maritime Excellence Image 13",
+      title: "Strategic Maritime Solutions"
+    },
+    {
+      src: WME14,
+      alt: "Maritime Excellence Image 14",
+      title: "Maritime Excellence"
+    },
+    {
+      src: WME15,
+      alt: "Maritime Excellence Image 15",
+      title: "Industry Excellence"
+    },
+    {
+      src: WME16,
+      alt: "Maritime Excellence Image 16",
+      title: "Maritime Professional Services"
     }
   ];
 
@@ -430,11 +509,6 @@ const AboutSection = () => {
                           alt={image.alt}
                           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-4 left-4 text-white">
-                            <p className="font-semibold">{image.title}</p>
-                          </div>
-                        </div>
                       </div>
                     </Card>
                   </div>
