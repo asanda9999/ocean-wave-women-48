@@ -32,8 +32,12 @@ const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
-  // Replace this with your personal email address
-  const YOUR_EMAIL = 'asandamkhize9@gmail.com';
+  // FormSubmit.co Configuration
+  // Replace this with your email address
+  const YOUR_EMAIL = 'Info@womaritime.com';
+  
+  // Note: FormSubmit.co requires email verification on first use
+  // Check your email for a verification link from FormSubmit.co
 
   const contactInfo = [
     {
@@ -110,30 +114,55 @@ const ContactSection = () => {
     setSubmitStatus('idle');
 
     try {
-      const form = e.currentTarget;
-      const formDataToSend = new FormData(form);
+      let isComplete = false;
       
-      // Add subject line for better email organization
-      const subject = formData.service 
-        ? `Contact Form: ${formData.service}`
-        : 'Contact Form Submission';
-      formDataToSend.append('_subject', subject);
+      // Create a hidden iframe to submit the form (bypasses CORS and navigation issues)
+      const iframe = document.createElement('iframe');
+      iframe.name = 'hidden_iframe';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
       
-      // URL encode the email for the endpoint
-      const encodedEmail = encodeURIComponent(YOUR_EMAIL);
+      // Create a hidden form
+      const hiddenForm = document.createElement('form');
+      const formAction = `https://formsubmit.co/${encodeURIComponent(YOUR_EMAIL)}`;
+      console.log('Submitting form to:', YOUR_EMAIL);
+      console.log('Form action URL:', formAction);
+      hiddenForm.method = 'POST';
+      hiddenForm.action = formAction;
+      hiddenForm.target = 'hidden_iframe';
+      hiddenForm.style.display = 'none';
       
-      // Submit to FormSubmit
-      const response = await fetch(`https://formsubmit.co/ajax/${encodedEmail}`, {
-        method: 'POST',
-        body: formDataToSend,
-        headers: {
-          'Accept': 'application/json'
+      // Add form fields
+      const fields = [
+        { name: 'name', value: formData.name },
+        { name: 'email', value: formData.email },
+        { name: 'company', value: formData.company },
+        { name: 'phone', value: formData.phone },
+        { name: 'service', value: formData.service },
+        { name: 'message', value: formData.message },
+        { name: '_subject', value: formData.service ? `Contact Form: ${formData.service}` : 'Contact Form Submission' },
+        { name: '_captcha', value: 'false' },
+        { name: '_template', value: 'box' },
+        { name: '_next', value: window.location.href }
+      ];
+      
+      fields.forEach(field => {
+        // Always add the field, even if empty (for required fields like name, email, message)
+        if (field.name === 'name' || field.name === 'email' || field.name === 'message' || field.value) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = field.name;
+          input.value = field.value || '';
+          hiddenForm.appendChild(input);
         }
       });
-
-      const data = await response.json();
       
-      if (response.ok && data.success) {
+      document.body.appendChild(hiddenForm);
+      
+      const handleSuccess = () => {
+        if (isComplete) return;
+        isComplete = true;
+        
         setSubmitStatus('success');
         // Reset form
         setFormData({
@@ -144,17 +173,38 @@ const ContactSection = () => {
           service: '',
           message: ''
         });
+        setIsSubmitting(false);
+        // Clean up
+        try {
+          document.body.removeChild(hiddenForm);
+          document.body.removeChild(iframe);
+        } catch (cleanupError) {
+          // Ignore cleanup errors
+        }
         // Reset status after 5 seconds
         setTimeout(() => {
           setSubmitStatus('idle');
         }, 5000);
-      } else {
-        setSubmitStatus('error');
-      }
+      };
+      
+      // Listen for iframe load to detect submission completion
+      iframe.onload = () => {
+        setTimeout(handleSuccess, 1000);
+      };
+      
+      // Submit the form
+      hiddenForm.submit();
+      
+      // Fallback timeout in case iframe doesn't load (assume success after 3 seconds)
+      setTimeout(() => {
+        if (!isComplete) {
+          handleSuccess();
+        }
+      }, 3000);
+      
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -214,12 +264,16 @@ const ContactSection = () => {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-green-50 border-2 border-green-200 rounded-xl flex items-center space-x-3"
+                    className="p-4 bg-green-50 border-2 border-green-200 rounded-xl"
                   >
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                    <p className="text-green-800 font-medium">
-                      Message sent successfully! We'll get back to you soon.
-                    </p>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-green-800 font-medium">
+                          Message sent successfully! We'll get back to you soon.
+                        </p>
+                      </div>
+                    </div>
                   </motion.div>
                 )}
 

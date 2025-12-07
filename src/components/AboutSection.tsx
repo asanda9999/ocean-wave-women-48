@@ -40,6 +40,11 @@ import WME13 from "@/assets/WME/WME13.JPG";
 import WME14 from "@/assets/WME/WME14.JPG";
 import WME15 from "@/assets/WME/WME15.jpg";
 import WME16 from "@/assets/WME/WME16.jpg";
+import WME17 from "@/assets/WME/WME17.jpg";
+import WME18 from "@/assets/WME/WME18.jpg";
+import WME19 from "@/assets/WME/WME19.jpg";
+import WME20 from "@/assets/WME/WME20.jpg";
+
 
 
 const AboutSection = () => {
@@ -132,6 +137,26 @@ const AboutSection = () => {
       src: WME16,
       alt: "Maritime Excellence Image 16",
       title: "Maritime Professional Services"
+    },
+    {
+      src: WME17,
+      alt: "Maritime Excellence Image 17",
+      title: "Maritime Excellence Showcase"
+    },
+    {
+      src: WME18,
+      alt: "Maritime Excellence Image 18",
+      title: "Professional Maritime Services"
+    },
+    {
+      src: WME19,
+      alt: "Maritime Excellence Image 19",
+      title: "Maritime Innovation & Excellence"
+    },
+    {
+      src: WME20,
+      alt: "Maritime Excellence Image 20",
+      title: "Maritime Excellence in Action"
     }
   ];
 
@@ -484,7 +509,7 @@ const AboutSection = () => {
               className="text-3xl md:text-4xl font-bold text-foreground mb-4"
               variants={itemVariants}
             >
-               <span className="text-secondary">Our Maritime Excellence</span>
+               <span className="text-primary">Womaritime In Motion</span>
             </motion.h3>
             <motion.p 
               className="text-xl text-muted-foreground max-w-2xl mx-auto"

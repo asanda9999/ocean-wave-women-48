@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Lightbulb, Globe, Users, Target, ChevronRight, ArrowRight, ExternalLink, Play, Plus, Minus } from "lucide-react";
+import { GraduationCap, Lightbulb, Globe, Users, ChevronRight, ArrowRight, ExternalLink, Play, Plus, Minus } from "lucide-react";
 import YOUTHLOGO from "@/assets/YOUTH-LOGO-removebg-preview.png";
 import YOUTHIMG from "@/assets/YOUTH-IMG.png";
 import EP8 from "@/assets/EP8.png";
@@ -135,7 +135,7 @@ const GlobalMaritimeYouthSection = () => {
     }
   ];
   return (
-    <section id="impact" className="py-24 bg-gradient-to-br from-primary/5 via-secondary/5 to-primary/10 relative overflow-hidden">
+    <section id="impact" className="py-24 bg-primary/5 relative overflow-hidden">
       {/* Fun and playful background elements */}
       <div className="absolute inset-0 opacity-10">
         {/* Floating maritime-themed shapes */}
@@ -177,12 +177,13 @@ const GlobalMaritimeYouthSection = () => {
         {/* Fun and energetic header */}
         <div className="text-center mb-20">
          
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent mb-6 leading-tight transform transition-all duration-1000 hover:scale-105">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6 leading-tight transform transition-all duration-1000 hover:scale-105">
             Global Maritime Youth
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed transform transition-all duration-1000 delay-200 hover:translate-y-1">
-            The non-profit impact arm of Womaritime Experts, on a mission to ignite a love for 
-            the ocean while closing the gap between maritime skills and industry needs.
+          Global Maritime Youth, the non-profit impact arm of Womaritime Experts exists to ignite a passion for the ocean and bridge the skills gap in the maritime sector.
+
+Through strong partnerships across government, private sector, NGOs, and academia, GMY drives transformation, ESG impact, and inclusive growth.
           </p>
         </div>
         
@@ -198,7 +199,7 @@ const GlobalMaritimeYouthSection = () => {
                 description: "Practical training to build a competent and employable maritime youth.",
                 details: "We provide hands-on training programs, mentorship opportunities, and industry certifications to prepare youth for successful maritime careers.",
                 color: "from-primary/10 to-primary/20",
-                bgColor: "bg-gradient-to-br from-primary/5 to-primary/15"
+                bgColor: "bg-primary/10"
               },
               {
                 icon: Lightbulb,
@@ -206,7 +207,7 @@ const GlobalMaritimeYouthSection = () => {
                 description: "Nurturing ocean-based businesses and sustainable local impact.",
                 details: "Supporting innovative ocean-based startups, community projects, and sustainable business models that benefit coastal communities.",
                 color: "from-secondary/10 to-secondary/20",
-                bgColor: "bg-gradient-to-br from-secondary/5 to-secondary/15"
+                bgColor: "bg-secondary/10"
               },
               {
                 icon: Users,
@@ -214,7 +215,7 @@ const GlobalMaritimeYouthSection = () => {
                 description: "Connecting youth to international opportunities and real-world experience.",
                 details: "Facilitating international exchanges, global partnerships, and cross-cultural learning experiences in the maritime sector.",
                 color: "from-primary/10 to-secondary/20",
-                bgColor: "bg-gradient-to-br from-primary/5 to-secondary/15"
+                bgColor: "bg-primary/10"
               }
             ].map((pillar, index) => (
               <div 
@@ -230,8 +231,8 @@ const GlobalMaritimeYouthSection = () => {
                 
                 <div className="flex flex-col items-center text-center relative z-10">
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                    <pillar.icon className="w-8 h-8" />
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+                    <pillar.icon className="w-8 h-8 text-white" />
                   </div>
                   
                   <h4 className="font-bold text-xl text-gray-800 mb-4 group-hover:text-primary transition-colors duration-300">
@@ -269,59 +270,17 @@ const GlobalMaritimeYouthSection = () => {
             ))}
           </div>
           
-          {/* Fun Impact Statement */}
-          <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 border-2 border-primary/30 rounded-3xl p-10 mb-16 hover:shadow-2xl transition-all duration-500 group relative overflow-hidden">
-            {/* Playful animated background elements */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-              <div className="absolute top-4 right-4 w-8 h-8 bg-primary/20 rounded-full animate-pulse"></div>
-              <div className="absolute bottom-6 left-6 w-6 h-6 bg-secondary/30 rounded-full animate-pulse delay-300"></div>
-              <div className="absolute top-1/2 right-8 w-4 h-4 bg-primary/25 rounded-full animate-pulse delay-700"></div>
-              <div className="absolute top-1/4 left-8 w-5 h-5 bg-secondary/20 rounded-full animate-bounce delay-500"></div>
-            </div>
-            
-            <div className="text-center relative z-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all duration-500">
-                <Target className="w-8 h-8 group-hover:rotate-12 transition-transform duration-500" />
-              </div>
-              
-              <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6 group-hover:scale-105 transition-transform duration-300">
-                Our Impact Mission
-              </h3>
-              
-              <div className="space-y-6">
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-medium group-hover:text-primary transition-colors duration-500">
-                  GMY supports transformation, ESG, and inclusive growth through partnerships 
-                  with government, private sector, NGOs, and academia.
-                </p>
-                <p className="text-xl md:text-2xl leading-relaxed text-gray-800 font-medium group-hover:text-primary transition-colors duration-500">
-                  As a trusted CSI partner, we help shape purpose-driven leaders who will 
-                  steer Africa's ocean economy forward.
-                </p>
-              </div>
-              
-            </div>
-          </div>
           
-          {/* Image with enhanced styling */}
-          <div className="mb-16">
-            <div className="max-w-6xl mx-auto">
-              <img 
-                src={YOUTHIMG} 
-                alt="Global Maritime Youth Team" 
-                className="w-full h-auto max-h-[600px] object-contain rounded-[3rem] shadow-2xl"
-              />
-            </div>
-          </div>
 
           {/* Fun Maritime Youth Image Carousel */}
           <div className="mb-16">
             <div className="text-center mb-8">
              
-              <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">
+              <h3 className="text-3xl md:text-4xl font-bold text-primary mb-4">
                 Global Maritime Youth Gallery
               </h3>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Showcasing youth engagement and maritime leadership in action
+                As a trusted CSI partner, we develop purpose-driven leaders ready to further drive Africa's blue growth responsibly and inclusively.
               </p>
             </div>
             <Carousel
@@ -352,12 +311,20 @@ const GlobalMaritimeYouthSection = () => {
             </Carousel>
           </div>
 
+          {/* Our Impact Header Section */}
+          <div className="mb-16">
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
+                Our Impact
+              </h2>
+            </div>
+          </div>
+
           {/* Fun Podcast Section */}
           <div className="mb-16">
             <div className="grid md:grid-cols-2 gap-8 items-start">
               {/* Left: Text Content */}
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-4">Our Impact</h2>
                 <h3 className="text-xl md:text-2xl font-semibold text-secondary mb-4">
                   Unlocking Oceans Economy - Flag ship
                 </h3>
@@ -426,8 +393,8 @@ const GlobalMaritimeYouthSection = () => {
           </div>
           
           {/* Fun Contact Info */}
-          <div className="bg-gradient-to-br from-primary/5 to-secondary/5 border-2 border-primary/30 rounded-3xl p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-500 group">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6 group-hover:scale-105 transition-transform duration-300">Get in Touch</h3>
+          <div className="bg-primary/10 border-2 border-primary rounded-3xl p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-500 group">
+            <h3 className="text-2xl font-bold text-primary mb-6 group-hover:scale-105 transition-transform duration-300">Get in Touch</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-gray-600">
               {[
                 { label: "Website", value: "www.womaritime.com", href: "https://www.womaritime.com" },

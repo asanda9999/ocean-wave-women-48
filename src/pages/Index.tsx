@@ -4,6 +4,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import GlobalMaritimeYouthSection from "@/components/GlobalMaritimeYouthSection";
 import ClientsPartnersSection from "@/components/ClientsPartnersSection";
+import VacanciesSection from "@/components/VacanciesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import { preloadImages } from "@/lib/imagePreloader";
@@ -141,7 +142,7 @@ const Index = () => {
       <AboutSection />
       <GlobalMaritimeYouthSection />
       <ClientsPartnersSection />
-      
+      <VacanciesSection />
       <ContactSection />
       <Footer />
     </div>
