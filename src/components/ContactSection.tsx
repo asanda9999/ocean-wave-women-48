@@ -47,13 +47,7 @@ const ContactSection = () => {
       subtitle: "Quick response within 24 hours",
       color: "text-green-600"
     },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: "+27 71 879 5034",
-      subtitle: "Monday - Friday, 8AM - 6PM",
-      color: "text-purple-600"
-    },
+   
     {
       icon: MapPin,
       title: "Location",

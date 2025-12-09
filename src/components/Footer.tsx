@@ -98,7 +98,6 @@ const Footer = () => {
                 {[
                   { icon: Globe, text: "www.womaritime.com" },
                   { icon: Mail, text: "info@womaritime.com" },
-                  { icon: Phone, text: "+27 71 879 5034" },
                   { icon: MapPin, text: "SOUTH AFRICA" }
                 ].map((item, index) => (
                   <motion.div 
