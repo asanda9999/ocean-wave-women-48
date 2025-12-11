@@ -398,7 +398,7 @@ Through strong partnerships across government, private sector, NGOs, and academi
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
               {[
                 { label: "Website", value: "www.womaritime.com", href: "https://www.womaritime.com" },
-                { label: "Email", value: "info@globalmaritimeyouth.com", href: "mailto:info@womaritime.com" },
+                { label: "Email", value: "info@womaritime.com", href: "mailto:info@womaritime.com" },
                 { label: "Location", value: "SOUTH AFRICA", href: null }
               ].map((contact, index) => (
                 <div key={index} className="space-y-2 group/item">
