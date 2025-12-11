@@ -395,11 +395,10 @@ Through strong partnerships across government, private sector, NGOs, and academi
           {/* Fun Contact Info */}
           <div className="bg-primary/10 border-2 border-primary rounded-3xl p-10 text-center shadow-lg hover:shadow-2xl transition-all duration-500 group">
             <h3 className="text-2xl font-bold text-primary mb-6 group-hover:scale-105 transition-transform duration-300">Get in Touch</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-sm text-gray-600">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-600">
               {[
                 { label: "Website", value: "www.womaritime.com", href: "https://www.womaritime.com" },
-                { label: "Email", value: "info@globalmaritimeyouth.com", href: "mailto:info@globalmaritimeyouth.com" },
-                { label: "Phone", value: "+27 71 879 5034", href: "tel:+27718795034" },
+                { label: "Email", value: "info@globalmaritimeyouth.com", href: "mailto:info@womaritime.com" },
                 { label: "Location", value: "SOUTH AFRICA", href: null }
               ].map((contact, index) => (
                 <div key={index} className="space-y-2 group/item">
@@ -416,6 +415,8 @@ Through strong partnerships across government, private sector, NGOs, and academi
                   )}
                 </div>
               ))}
+
+              
             </div>
           </div>
         </div>

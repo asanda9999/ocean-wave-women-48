@@ -22,6 +22,7 @@ const Footer = () => {
     { name: "What we do", href: "#services" },
     { name: "Impact", href: "#impact" },
     { name: "Partners", href: "#clients" },
+    { name: "Opportunties", href: "#vacancies" },
     { name: "Contact", href: "#contact" }
   ];
 

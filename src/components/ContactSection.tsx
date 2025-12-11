@@ -479,7 +479,6 @@ const ContactSection = () => {
                 </div>
                 <p className="text-sm text-muted-foreground">
                   We respond to all inquiries within 24 hours during business days. 
-                  For urgent matters, please call us directly.
                 </p>
               </Card>
             </motion.div>
